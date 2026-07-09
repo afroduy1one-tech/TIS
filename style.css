@@ -316,6 +316,7 @@ body{
     display:grid;
     grid-template-columns:repeat(3, 1fr);
     gap:40px;
+    margin-bottom: 70px;
 }
 
 .card{
@@ -384,4 +385,216 @@ body{
 
 .card-footer span:hover {
     opacity: 0.7;
+}
+/*констурткор*/
+
+.construct{
+    position:relative;
+    overflow:visible;
+    padding:80px 0;
+}
+
+.construct-grid{
+    display:grid;
+    grid-template-columns: 7fr 5fr;
+    align-items:center;
+}
+
+.construct-content{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.construct-content span{
+    font-family: 'Panama Bold';
+    font-size: 32px;
+    color: #000;
+}
+
+.construct-content h2{
+    font-family: 'Panama Monospace';
+    font-size: 64px;
+    color: #890000;
+    letter-spacing: -0.0967em;
+    line-height: 0.91;
+}
+
+.main-btn{
+    margin-top: -56px;
+    width: 350px;
+    height: 90px;
+    background: #890000;
+    backdrop-filter: blur(15px);
+    border-radius: 36px;
+    font-family: 'Panama Regular';
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.arrow-cnt{
+    width:180px;
+    transform-origin: center;
+    transform: rotate(-10deg);
+    margin-left: 600px;
+    margin-top: -50px;
+}
+
+.construct-content p {
+    font-family: 'Panama Monospace';
+    font-size: 32px;
+    color: #000;
+    letter-spacing: -0.069em;
+    line-height: 1.1;
+    margin-top: 30px;
+}
+
+.construct-visual{
+    position:relative;
+    overflow:visible;
+}
+
+.mountain-photo{
+    position:absolute;
+    right:0;
+    bottom:75px;
+    width:850px;
+    max-width:none;
+    height:auto;
+    object-fit:cover;
+    pointer-events:none;
+}
+
+@media (max-width:1100px){
+    .mountain-photo{ width:700px; }
+    .construct-content h2{ font-size:48px; }
+}
+
+@media (max-width:900px){
+    .construct-grid{ grid-template-columns: 1fr; }
+    .mountain-photo{ position:static; width:100%; transform:none; margin-top:20px; }
+    .main-btn{ margin-top:8px; transform:none; align-self:center; }
+    .construct-content h2{ font-size:28px; }
+}
+.map-grid{
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+}
+
+.section-map{
+    margin-top: 60px;
+    grid-column: 2/6;
+    font-family: 'Source Serif Pro', serif;
+    font-weight: 300;
+    font-size:32px;
+    line-height:1.0;
+    letter-spacing: -0.04em;
+}
+
+
+/* карта */
+.map-wrapper{
+    position:relative;
+}
+
+.map-image{
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+}
+    .map-object{
+    position:absolute;
+}
+.map-label{
+    border:1px solid #890000;
+    border-radius:999px;
+    padding:12px 26px;
+    background:#F0ECE4;
+    color:#890000;
+    font-family:'Source Serif Pro';
+    cursor:pointer;
+}
+.map-popup{
+    position:absolute;
+    left:110%;
+    top:50%;
+    transform:translateY(-50%);
+    width:300px;
+    background:white;
+    border-radius:30px;
+    padding:12px;
+    box-shadow:0 10px 40px rgba(0,0,0,.15);
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+    z-index:3;
+}
+.map-object:hover .map-popup{
+    opacity:1;
+    visibility:visible;
+}
+.map-popup img{
+    width:100%;
+    border-radius:20px;
+}
+
+.popup-content h3{
+    font-family:Wadik;
+    color:#3D4B39;
+    font-size:20px;
+    margin-top:5px;
+    margin-bottom:5px;
+    letter-spacing: -0.05em;
+}
+.popup-content p{
+    margin-bottom:20px;
+    font-family:'Panama Monospace';
+    font-size:18px;
+    color:#000;
+    line-height:1.1;
+    letter-spacing: -0.03em;
+    text-align: start;
+    height: 80px;
+}
+.map-popup a{
+    text-decoration:none;
+    font-family: 'Panama Bold';
+    font-size: 20px;    
+    color:#3D4B39;
+    margin-bottom:5px;
+}
+.log{
+    
+    left:-2%;
+    top:53%;
+}
+.sopka{
+    left:-2%;
+    top:43%;
+}
+
+.dolina{
+    left:4%;
+    top:34%;
+}
+.griva{
+    left:-1%;
+    top:63%;
+}
+.ostrov{
+    right:14%;
+    top:78%;
+}
+.stolby{
+    left:23%;
+    top:84%;
+}
+.hrebet{
+    left:18%;
+    top:92%;
 }
