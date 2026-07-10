@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Открой Красноярск - путеводитель</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
 <header class="header">
@@ -13,12 +14,26 @@
             <img src="images/logo.png" alt="Открой Красноярск">
         </a>
         <nav class="nav">
-            <a href="objects.html">Объекты</a>
-            <a href="#">Подобрать место</a>
+            <ul>
+                <li><a href="#objects">Объекты</a></li>
+                <li><a href="#">Подобрать место</a></li>
+            </ul>
         </nav>
-        <button class="burger">
-            <img src="images/menu.svg" alt="Меню">
-        </button>
+        <div class="burger-wrap">
+
+            <button class="burger">
+                <img src="images/menu.svg" alt="Меню">
+            </button>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="#about">О проекте</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </div>
+
+        </div>
+
     </div>
 </header>
 <main>
@@ -48,7 +63,7 @@
             </div>
         </div>
     </section>
-    <div class="explore-objects">
+    <div class="explore-objects" id="objects">
         <div class="container-main">
             <div class="objects-grid">
                 <div class="section-head">
@@ -63,7 +78,6 @@
                     <img src="images/arrow-right.svg" alt="">
                 </button>
             </div>
-
         <div class="cards">
             <article class="card">
                 <img src="images/log.jpg" alt="Серебряный лог">
@@ -89,7 +103,7 @@
                 <div class="card-footer">
                     <span>Исследовать</span>
                     <button>
-                    <img src="images/arrow-card.svg" alt="">
+                    <img src="images/arrow-card.svg" alt="" >
                     </button>
                 </div>
             </article>
@@ -108,9 +122,40 @@
             </article>
         </div>
         </div>
+  
     </div>
 </div>
     </section>
+    <section class="construct">
+    <div class="container-main">
+        <div class="construct-grid">
+
+            <div class="construct-content">
+                <span>Не знаете, куда отправиться?</span>
+
+                <h2>
+                    Мы подберём место, чтобы каждая прогулка стала вашей личной историей.
+                </h2>
+
+                <img src="images/arrow-cnt.svg" alt="" class="arrow-cnt">
+
+                <a href="#" class="main-btn">
+                    Подобрать маршрут
+                </a>
+
+                <p>
+                    Здесь не нужно уезжать далеко, чтобы оказаться на природе.<br>
+Горы, лес и Енисей - всё это рядом.
+                </p>
+            </div>
+
+            <div class="construct-visual">
+                <img src="images/mountain.png" alt="" class="mountain-photo">
+            </div>
+
+        </div>
+    </div>
+</section>
     <section class="map">
     <div class="container-main">
         <div class="section-head">
@@ -254,6 +299,34 @@
 </section>
 </main>
 <footer>
+<img src="images/footer.png" alt="" class="footer-image">
+<div class="container">
+    <div class="footer-content">
+        <div class="footer-desc">
+                        <p>
+                            ТЕПЕРЬ ТВОЯ ОЧЕРЕДЬ
+                        </p>
+                        <h2>открыть</h2>
+                        <span>КРАСНОЯРСК</span>
+        </div>
+        <div class="footer-info">
+            <div class="footer-links">
+                 <ul>
+                    <li><a href="objects.html">Объекты</a></li>
+                    <li><a href="#">Подобрать место</a></li>
+                </ul>
+            </div>
+            <div class="footer-info-center">
+                <img src="images/logo.png" alt="Открой Красноярск">
+                <p>Практика 2026 • Красноярский ТИЦ</p>
+            </div>
+            <div class="footer-info-right" id="about">
+                <h2>О проекте</h2>
+                <p>Проект разработан в рамках производственной практики совместно с Красноярским туристическим информационным центром</p>
+            </div>
+        </div>
+    </div>
 </footer>
+<script src="js/main.js"></script>
 </body>
 </html>
