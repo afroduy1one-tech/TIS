@@ -120,18 +120,15 @@ body{
     width:140px;
 }
 
-
 .nav{
     margin-left:auto;
 }
-
 
 .nav ul{
     display:flex;
     gap:48px;
     list-style:none;
 }
-
 
 .nav a{
     text-decoration:none;
@@ -190,11 +187,11 @@ body{
     font-family:'Panama Bold';
     font-size:22px;
 }
-.hero-grid{
-    display:grid;
-    grid-template-columns:repeat(12,1fr);
-    min-height:calc(100vh - 110px);
-}
+    .hero-grid{
+        display:grid;
+        grid-template-columns:repeat(12,1fr);
+        min-height:calc(100vh - 110px);
+    }
 
 /* контейнер*/
 .container-main{

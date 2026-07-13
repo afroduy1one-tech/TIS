@@ -1,0 +1,64 @@
+.sopka-title h1{
+    align-self: start;
+    font-family:'Panama Bold';
+    font-size:150px;
+    letter-spacing:-0.03em;
+    color: #fff;;
+    transform: scaleY(1.7);
+    opacity: 0.8;
+    display:grid;
+    width:max-content;
+}
+.sopka-title{
+    grid-column:2/8;
+    align-self:start;
+    padding-top:60px;
+
+}
+.sopka-subtitle h2{
+    align-self: start;
+    font-family:'Panama Bold';
+    font-size:150px;
+    letter-spacing:-0.03em;
+    color: #fff;;
+    transform: scaleY(1.7);
+    opacity: 0.8;
+    display:grid;
+    width:max-content;
+    text-align: right;
+}
+.sopka-subtitle{
+    grid-column:9/11;
+    align-self:center;
+    margin-top:230px;
+}
+.sopka-text p{
+    align-self: start;
+    font-family:'Panama Bold';
+    font-size:32px;
+    letter-spacing:0.02em;
+    color: #fff;;
+    display:grid;
+    width:max-content;
+    text-align: right;
+}
+.sopka-text{
+    grid-column:7/11;
+    align-self:end;
+    margin-bottom:250px;
+    
+}
+
+
+.features-card-images h3{
+    position:absolute;
+    top:35px;
+    right:35px;
+
+    font-family:'Wadik Bold';
+    font-size:26px;
+    line-height:1;
+    color:#fff;
+    text-align:right;
+    text-transform:uppercase;
+}

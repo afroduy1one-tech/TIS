@@ -1,0 +1,98 @@
+.features-grid{
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+    gap:30px;
+}
+.features{
+    padding-top:70px;
+    position:relative;
+}
+.features-text {
+    grid-column:1/9;
+    text-align: right;
+    font-family: 'Source Serif Pro', serif;
+    font-weight: 300;
+    font-size:32px;
+    line-height:1.0;
+    letter-spacing: -0.008em;
+}
+
+.features::after {
+    content: "";
+    position: absolute;
+    top: 15%;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    background: url("../images/features-bg.svg") no-repeat;
+    pointer-events: none;
+    z-index: -1;
+}
+.features-card{
+    grid-column: 1/13;
+    margin-top:60px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:40px;
+}
+.features-card-images,
+.features-card-text{
+    border:1px solid #3D4B39;
+    border-radius:28px;
+    overflow:hidden;
+}
+
+.features-card-images{
+    position:relative;
+}
+
+.features-card-images img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+}
+.features-card-images p{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Wadik Bold';
+    font-size:26px;
+    color:#fff;
+    text-align:center;
+    text-transform:uppercase;
+}
+
+.features-card-text h3{
+    font-family:'Wadik Bold';
+    font-size:24px;
+    line-height:1;
+    color:#3D4B39;
+    text-transform:uppercase;
+}
+.features-card-text{
+    background:#F4F1EA;
+    padding:38px;
+
+    display:grid;
+    grid-template-columns:1fr auto;
+    grid-template-rows:auto auto;
+    column-gap:20px;
+}
+.features-card-text img{
+    width:160px;
+    justify-self:end;
+    align-self:start;
+}
+.features-card-text p{
+    grid-column:1/3;
+    margin-top:25px;
+
+    font-family:'Source Serif Pro';
+    font-weight:300;
+    font-size:22px;
+    line-height:1.15;
+    color:#666;
+}
