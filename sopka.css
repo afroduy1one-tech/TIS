@@ -9,12 +9,14 @@
     display:grid;
     width:max-content;
 }
+
 .sopka-title{
     grid-column:2/8;
     align-self:start;
     padding-top:60px;
 
 }
+
 .sopka-subtitle h2{
     align-self: start;
     font-family:'Panama Bold';
@@ -27,11 +29,13 @@
     width:max-content;
     text-align: right;
 }
+
 .sopka-subtitle{
     grid-column:9/11;
     align-self:center;
     margin-top:230px;
 }
+
 .sopka-text p{
     align-self: start;
     font-family:'Panama Bold';
@@ -42,6 +46,7 @@
     width:max-content;
     text-align: right;
 }
+
 .sopka-text{
     grid-column:7/11;
     align-self:end;
@@ -49,16 +54,162 @@
     
 }
 
-
 .features-card-images h3{
     position:absolute;
     top:35px;
     right:35px;
-
     font-family:'Wadik Bold';
-    font-size:26px;
+    font-size:24px;
     line-height:1;
     color:#fff;
     text-align:right;
     text-transform:uppercase;
+}
+
+.sopka-map{
+    padding-top:70px;
+    position:relative;
+}
+
+.sopka-map-text{
+    max-width:74%;
+    margin:40px 0 70px;
+    text-align: left;
+    font-family: 'Source Serif Pro', serif;
+    font-weight: 300;
+    font-size:32px;
+    line-height:1.0;
+    letter-spacing: -0.008em;
+}
+
+.panorama{
+    position:relative;
+    width:100%;
+}
+
+.panorama-image{
+    display:block;
+    width:100%;
+    height:auto;
+}
+
+.point{
+    position:absolute;
+    width:18px;
+    height:18px;
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    padding:0;
+
+    transition:transform .25s;
+}
+.point:hover{
+    transform:translateY(-6px);
+}
+
+.dot{
+    display:block;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    border:5px solid #fff;
+    transition: transform .25s, background .25s;
+}
+
+.point:hover .dot{
+    box-shadow:0 12px 30px rgba(61,75,57,.12);
+}
+
+.point::after{
+    content:"";
+    position:absolute;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+    width:2px;
+    height:55px;
+    background:#D7D7D7;
+    transition:.25s;
+}
+
+.point:hover::after{
+    height:61px;
+}
+
+.label{
+    position:absolute;
+    left:50%;
+    bottom:25px;
+    transform:translateX(-50%);
+    min-width:180px;
+    background:#F4F1EA;
+    border-radius:30px;
+    padding:12px 18px;
+    text-align:center;
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+    border:1px solid #364A33; 
+}
+
+.point:hover .label{
+    opacity:1;
+    visibility:visible;
+}
+
+.label h3{
+    font-family:'Wadik';
+    font-size:20px;
+    color:#364A33;
+    margin-bottom:5px;
+}
+
+.label p{
+    font-family:'Source Serif Pro', serif;
+    font-size:16px;
+    color:#555;
+}
+.point-1{
+    left:10%;
+    top:36%;
+}
+
+.point-2{
+    left:20%;
+    top:36%;
+}
+
+.point-3{
+    left:36%;
+    top:32%;
+}
+
+.point-4{
+    left:46%;
+    top:32%;
+}
+
+.point-5{
+    left:61%;
+    top:31%;
+}
+.point-6{
+    left:80%;
+    top:31%;
+}
+.point-7{
+    left:90%;
+    top:47%;
+}
+.point-8{
+    left:56%;
+    top:39%;
+}
+
+.arrow-sopka{
+    position:absolute;
+    top:150px;
+    left:65%;
+    z-index:2;
 }
