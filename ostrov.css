@@ -1,0 +1,68 @@
+.ostrov-title h1{
+    align-self: start;
+    font-family:'Panama Bold';
+    font-size:150px;
+    letter-spacing:-0.03em;
+    color: #fff;;
+    transform: scaleY(1.7);
+    opacity: 0.9;
+    display:grid;
+    width:max-content;
+}
+
+.ostrov-title{
+    grid-column:2/8;
+    align-self:start;
+    margin-top:300px;
+
+}
+
+.ostrov-subtitle h2{
+    align-self: start;
+    font-family:'Panama Bold';
+    font-size:150px;
+    letter-spacing:-0.03em;
+    color: #fff;;
+    transform: scaleY(1.7);
+    opacity: 0.9;
+    display:grid;
+    width:max-content;
+    text-align: right;
+}
+
+.ostrov-subtitle{
+    grid-column:8/11;
+    align-self:center;
+    margin-top:300px;
+}
+
+.ostrov-text p{
+    align-self: start;
+    font-family:'Panama Bold';
+    font-size:32px;
+    letter-spacing:0.02em;
+    color: #fff;;
+    display:grid;
+    width:max-content;
+    text-align: right;
+}
+
+.ostrov-text{
+    grid-column:8/12;
+    align-self:end;
+    margin-bottom:180px;
+    
+}
+.features-card-images h3{
+    position:absolute;
+    bottom:35px;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:'Wadik Bold';
+    font-size:24px;
+    line-height:1;
+    color:#fff;
+    text-align:center;
+    text-transform:uppercase;
+    width:100%;
+}

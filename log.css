@@ -1,0 +1,77 @@
+.log-title h1{
+    align-self: start;
+    font-family:'Panama Bold';
+    font-size:150px;
+    letter-spacing:-0.03em;
+    color: #fff;;
+    transform: scaleY(1.7);
+    opacity: 0.9;
+    display:grid;
+    width:max-content;
+}
+
+.log-title{
+    grid-column:2/8;
+    align-self:start;
+    padding-top:60px;
+}
+
+.log-subtitle{
+    grid-column:9/11;
+    align-self:center;
+    margin-top:230px;
+}
+
+.log-text p{
+    align-self: start;
+    font-family:'Panama Bold';
+    font-size:32px;
+    letter-spacing:0.02em;
+    color: #fff;;
+    display:grid;
+    width:max-content;
+    line-height: 1.2em;
+}
+
+.log-text{
+    grid-column:8/12;
+    align-self:end;
+    margin-bottom:450px;
+    
+}
+.features-card-images h3{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Wadik Bold';
+    font-size:24px;
+    color:#fff;
+    text-align:center;
+    text-transform:uppercase;
+}
+
+.route-log{
+    padding-top:70px;
+    position:relative;
+   
+}
+
+.route-log-desc{
+    max-width:74%;
+    margin:40px 0 70px;
+    text-align: left;
+    font-family: 'Source Serif Pro', serif;
+    font-weight: 300;
+    font-size:32px;
+    line-height:1.0;
+    letter-spacing: -0.008em;
+}
+
+.log-map img{
+    width:100%;
+    display:block;
+    margin-bottom: 60px;
+    margin-top: 0;
+}
