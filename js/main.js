@@ -4,8 +4,8 @@ const menu = document.querySelector('.menu');
 burger.addEventListener('click', () => {
     menu.classList.toggle('active');
 });
-
 const slider = document.querySelector('.cards-slider');
+const cards = document.querySelectorAll('.cards-slider .card');
 
 const nextBtn = document.querySelector('.slider-next');
 const prevBtn = document.querySelector('.slider-prev');
@@ -14,29 +14,8 @@ const prevBtn = document.querySelector('.slider-prev');
 let position = 0;
 
 
-nextBtn.addEventListener('click', () => {
-
-    position++;
-
-    slider.style.transform =
-    `translateX(-${position * 33.333}%)`;
-
-});
-
-
-prevBtn.addEventListener('click', () => {
-
-    position--;
-
-    if(position < 0){
-        position = 0;
-    }
-
-    slider.style.transform =
-    `translateX(-${position * 33.333}%)`;
-
-});
-const maxPosition = 4;
+const cardWidth = cards[0].offsetWidth + 40;
+const maxPosition = cards.length - 3; // 7 карточек, показываем 3
 
 
 nextBtn.addEventListener('click', () => {
@@ -46,6 +25,18 @@ nextBtn.addEventListener('click', () => {
     }
 
     slider.style.transform =
-    `translateX(-${position * 33.333}%)`;
+    `translateX(-${position * cardWidth}px)`;
+
+});
+
+
+prevBtn.addEventListener('click', () => {
+
+    if(position > 0){
+        position--;
+    }
+
+    slider.style.transform =
+    `translateX(-${position * cardWidth}px)`;
 
 });

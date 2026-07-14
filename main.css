@@ -23,7 +23,6 @@
     opacity: 0.7;
     display:block;
     width:max-content;
-    
 }
 
 .hero-subtitle{
@@ -163,7 +162,6 @@
     width:15px;
 }
 
-
 /*констурткор*/
 
 .construct{
@@ -254,19 +252,22 @@
 .slider-window{
     grid-column:1 / 13;
     overflow:hidden;
+    padding:15px 0;
 }
-
-
 .cards-slider{
-    display:flex;
+    display:flex !important;
+    flex-wrap:nowrap;
     gap:40px;
     transition:transform .5s ease;
+    grid-column:auto;
+    grid-template-columns:none;
+    width:auto;
 }
-
 
 .cards-slider .card{
     flex:0 0 calc((100% - 80px) / 3);
 }
+
 @media (max-width:1100px){
     .mountain-photo{ width:700px; }
     .construct-content h2{ font-size:48px; }

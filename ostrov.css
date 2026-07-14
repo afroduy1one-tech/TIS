@@ -66,3 +66,146 @@
     text-transform:uppercase;
     width:100%;
 }
+.history-ostrov{
+    padding-top:70px;
+    position:relative;
+}
+
+.history-slider{
+    position:relative;
+}
+
+.history-content{
+    display:flex;
+    gap:40px;
+    align-items:center;
+    margin-top: 7%;
+    margin-bottom: 5%;
+}
+
+.history-image{
+    width:50%;
+    aspect-ratio:5 / 3;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+.history-info{
+    width:50%;
+    display:flex;
+    flex-direction:column;
+    height:400px;
+    justify-content: space-between;
+}
+
+.history-info h3{
+    font-family: 'Wadik';
+    color: #890000;
+    font-size: 100px;
+    letter-spacing:-0.07em;
+    transform: scaleY(2.5);
+    text-align: center;
+    margin:0;
+}
+
+.history-info h4{
+    font-family: 'Wadik';
+    color: #000;
+    font-size: 32px;
+    letter-spacing:-0.04em;
+    text-align: center;
+    margin:0;
+
+}
+
+.history-info p{
+    font-family: 'Source Serif Pro';
+    color: #000;
+    font-weight: 300;
+    font-size: 30px;
+    letter-spacing:-0.05em;
+    text-align:right;
+    line-height: 1.1em;
+    margin:0;
+
+}
+
+.history-arrows{
+    justify-content:center;
+    gap:20px;
+    display:flex;
+}
+
+.history-arrows button{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:none;
+    background:#3D4B39;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    transition:
+        transform .25s,
+        background .25s,
+        box-shadow .25s;
+}
+
+.history-arrows button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(61,75,57,.18);
+}
+
+.history-arrows button:first-child:hover img{
+    transform:translateX(-3px);
+}
+
+.history-arrows button:last-child:hover img{
+    transform:translateX(3px);
+}
+
+.history-arrows img{
+    transition:.25s;
+}
+
+.history-arrows img{
+    width:15px;
+}
+.history-progress{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin:30px 0;
+}
+
+.history-progress span{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#777;
+}
+
+.history-progress .active{
+    background:#890000;
+}
+.history-image,
+.history-info{
+    animation:fade .4s;
+}
+.history-image{
+    height:400px;
+    object-fit:cover;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
