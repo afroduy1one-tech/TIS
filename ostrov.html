@@ -18,7 +18,7 @@
         <nav class="nav">
             <ul>
                 <li><a href="index.html#objects">Объекты</a></li>
-                <li><a href="#">Подобрать место</a></li>
+                <li><a href="#" class="open-modal">Подобрать место</a></li>
             </ul>
         </nav>
         <div class="burger-wrap">
@@ -101,12 +101,8 @@
             </div>
             <div class="history-progress"></div>
             <div class="history-arrows">
-                <button class="slider-prev">
-                    <img src="images/arrow-left.svg" alt="">
-                </button>
-                <button class="slider-next">
-                    <img src="images/arrow-right.svg" alt="">
-                </button>
+                <button class="slider-prev">&lt;</button>
+                    <button class="slider-next">&gt;</button> 
             </div>
         </div>
     </div>
@@ -130,8 +126,7 @@
                 </p>
                 <div class="card-footer">
                     <span>Исследовать</span>
-                    <a href="sopka.html">
-                    <img src="images/arrow-card.svg" alt="">
+                    <a href="sopka.html">&rarr;
                     </a>
                 </div>
             </article>
@@ -143,8 +138,7 @@
                 </p>
                 <div class="card-footer">
                     <span>Исследовать</span>
-                    <a href="#">
-                    <img src="images/arrow-card.svg" alt="" >
+                    <a href="#">&rarr;
                     </a>
                 </div>
             </article>
@@ -156,8 +150,7 @@
                 </p>
                 <div class="card-footer">
                     <span>Исследовать</span>
-                    <a href="#">
-                    <img src="images/arrow-card.svg" alt="">
+                    <a href="#">&rarr;
                     </a>
                 </div>
             </article>
@@ -204,6 +197,7 @@
     </div>
 </section>
     </main>
+    <div id="modal-container"></div>
     <footer>
 <img src="images/footer.png" alt="" class="footer-image">
 <div class="container">
@@ -219,7 +213,7 @@
             <div class="footer-links">
                  <ul>
                     <li><a href="index.html#objects">Объекты</a></li>
-                    <li><a href="#">Подобрать место</a></li>
+                    <li><a href="#" class="open-modal">Подобрать место</a></li>
                 </ul>
             </div>
             <div class="footer-info-center">
@@ -236,5 +230,6 @@
     </div>
 </footer>
 <script src="js/ostrov.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

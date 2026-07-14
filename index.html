@@ -17,7 +17,7 @@
         <nav class="nav">
             <ul>
                 <li><a href="index.html#objects">Объекты</a></li>
-                <li><a href="#">Подобрать место</a></li>
+                <li><a href="#" class="open-modal">Подобрать место</a></li>
             </ul>
         </nav>
         <div class="burger-wrap">
@@ -53,7 +53,7 @@
                             <span class="you">тебя</span>
                         </div>
                     </div>
-                    <a href="#" class="hero-btn">
+                    <a href="#" class="hero-btn open-modal">
                             Подобрать место
                         </a>
                 </div>
@@ -69,13 +69,9 @@
                 </div>
                 <p class="section-desc">Природа, маршруты и места, которые стоит увидеть хотя бы<br>однажды.</p>
                 <div class="arrows">
-                        <button class="slider-prev">
-                    <img src="images/arrow-left.svg" alt="">
-                </button>
-                <button class="slider-next">
-                    <img src="images/arrow-right.svg" alt="">
-                </button>
-            </div>
+                    <button class="slider-prev">&lt;</button>
+                    <button class="slider-next">&gt;</button>   
+                </div>
             <div class="slider-window">
                 <div class="cards cards-slider">
                      <article class="card">
@@ -88,9 +84,7 @@
                         </p>
                         <div class="card-footer">
                             <span>Исследовать</span>
-                            <a href="log.html">
-                            <img src="images/arrow-card.svg" alt="">
-                            </a>
+                            <a href="log.html">&rarr;</a>
                         </div>
                     </article>
                     <article class="card">
@@ -101,8 +95,7 @@
                         </p>
                         <div class="card-footer">
                             <span>Исследовать</span>
-                            <a href="sopka.html">
-                            <img src="images/arrow-card.svg" alt="" >
+                            <a href="sopka.html">&rarr;
                             </a>
                         </div>
                     </article>
@@ -114,8 +107,7 @@
                         </p>
                         <div class="card-footer">
                             <span>Исследовать</span>
-                            <a href="ostrov.html">
-                            <img src="images/arrow-card.svg" alt="">
+                            <a href="ostrov.html">&rarr;
                             </a>
                         </div>
                     </article>
@@ -127,8 +119,7 @@
                         </p>
                         <div class="card-footer">
                             <span>Исследовать</span>
-                            <a>
-                            <img src="images/arrow-card.svg" alt="">
+                            <a>&rarr;
                             </a>
                         </div>
                     </article>
@@ -140,8 +131,7 @@
                         </p>
                         <div class="card-footer">
                             <span>Исследовать</span>
-                            <a>
-                            <img src="images/arrow-card.svg" alt="">
+                            <a>&rarr;
                             </a>
                         </div>
                     </article>
@@ -153,8 +143,7 @@
                         </p>
                         <div class="card-footer">
                             <span>Исследовать</span>
-                            <a>
-                            <img src="images/arrow-card.svg" alt="">
+                            <a>&rarr;
                             </a>
                         </div>
                     </article>
@@ -166,8 +155,7 @@
                         </p>
                         <div class="card-footer">
                             <span>Исследовать</span>
-                            <a>
-                            <img src="images/arrow-card.svg" alt="">
+                            <a>&rarr;
                             </a>
                         </div>
                     </article>
@@ -189,7 +177,7 @@
 
                 <img src="images/arrow-cnt.svg" alt="" class="arrow-cnt">
 
-                <a href="#" class="main-btn">
+                <a href="#" class="main-btn open-modal" >
                     Подобрать маршрут
                 </a>
                 <p>
@@ -229,7 +217,7 @@
                             сочетается с удобной инфраструктурой
                             для прогулок всей семьёй.
                         </p>
-                        <a href="#">
+                        <a href="log.html">
                             Подробнее
                         </a>
                     </div>
@@ -247,7 +235,7 @@
                         <p>
                             Один из крупнейших экопарков России с десятками маршрутов для прогулок, спорта и походов.
                         </p>
-                        <a href="#">
+                        <a href="griva.html">
                             Подробнее
                         </a>
                     </div>
@@ -265,7 +253,7 @@
                         <p>
                             Уютная долина в лесу рядом с Плодово‑Ягодной станцией - здесь легко забыть, что ты всё ещё в Красноярске.
                         </p>
-                        <a href="#">
+                        <a href="dolina.html">
                             Подробнее
                         </a>
                     </div>
@@ -283,7 +271,7 @@
                         <p>
                             Город, Енисей и горы открываются здесь одним панорамным кадром.
                         </p>
-                        <a href="#">
+                        <a href="sopka.html">
                             Подробнее
                         </a>
                     </div>
@@ -301,7 +289,7 @@
                         <p>
                             Живописный уголок в сердце Красноярска, раскинувшийся посреди могучего Енисея.
                         </p>
-                        <a href="#">
+                        <a href="ostrov.html">
                             Подробнее
                         </a>
                     </div>
@@ -319,7 +307,7 @@
                         <p>
                             Национальный парк, где величественные скалы поднимаются прямо из сибирской тайги.
                         </p>
-                        <a href="#">
+                        <a href="stolbe.html">
                             Подробнее
                         </a>
                     </div>
@@ -337,7 +325,7 @@
                         <p>
                             1683 ступени, ведущие к одному из самых красивых видов на Красноярск.
                         </p>
-                        <a href="#">
+                        <a href="hrebet.html">
                             Подробнее
                         </a>
                     </div>
@@ -347,6 +335,7 @@
     </div>
 </section>
 </main>
+<div id="modal-container"></div>
 <footer>
 <img src="images/footer.png" alt="" class="footer-image">
 <div class="container">
@@ -362,7 +351,7 @@
             <div class="footer-links">
                  <ul>
                     <li><a href="index.html#objects">Объекты</a></li>
-                    <li><a href="#">Подобрать место</a></li>
+                    <li><a href="#" class="open-modal">Подобрать место</a></li>
                 </ul>
             </div>
             <div class="footer-info-center">
@@ -378,6 +367,7 @@
         </div>
     </div>
 </footer>
+
 <script src="js/main.js"></script>
 </body>
 </html>

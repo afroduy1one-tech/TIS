@@ -93,6 +93,7 @@
 .history-info{
     width:50%;
     display:flex;
+
     flex-direction:column;  
     height:400px;
     justify-content: space-between;
@@ -145,7 +146,10 @@
     display:flex;
     justify-content:center;
     align-items:center;
-
+    font-size:35px;
+    color:#F4F1EA;
+    line-height:1;
+    cursor:pointer;
     transition:
         transform .25s,
         background .25s,
