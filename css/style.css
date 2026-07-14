@@ -1,7 +1,7 @@
 /* Panama Regular */
 @font-face {
     font-family:'Panama Regular';
-    src:url('fonts/Panama-Regular.ttf') format('truetype');
+    src:url('/fonts/Panama-Regular.ttf') format('truetype');
     font-weight:400;
     font-style:normal;
     font-display:swap;
@@ -9,7 +9,7 @@
 /* Panama Bold */
 @font-face {
     font-family:'Panama Bold';
-    src:url('fonts/Panama-Bold.ttf') format('truetype');
+    src:url('/fonts/Panama-Bold.ttf') format('truetype');
     font-weight:700;
     font-style:normal;
     font-display:swap;
@@ -17,7 +17,7 @@
 /* Panama Monospace Regular */
 @font-face {
     font-family:'Panama Monospace';
-    src:url('fonts/Panama-Monospace-Regular.ttf') format('truetype');
+    src:url('/fonts/Panama-Monospace-Regular.ttf') format('truetype');
     font-weight:400;
     font-style:normal;
     font-display:swap;
@@ -25,14 +25,14 @@
 /* Panama Monospace Bold */
 @font-face {
     font-family:'Panama Monospace Bold';
-    src:url('fonts/Panama-Monospace-Bold.ttf') format('truetype');
+    src:url('/fonts/Panama-Monospace-Bold.ttf') format('truetype');
     font-weight:700;
     font-style:normal;
     font-display:swap;
 }
 @font-face {
     font-family:'coventryC';
-    src:url('fonts/coventryc.ttf') format('truetype');
+    src:url('/fonts/coventryc.ttf') format('truetype');
     font-style:normal;
     font-weight:400;
     font-display:swap; 
@@ -40,7 +40,7 @@
 
 @font-face {
     font-family:'Wadik Bold';
-    src:url('fonts/Wadik.ttf') format('truetype');
+    src:url('/fonts/Wadik.ttf') format('truetype');
     font-style:normal;
     font-weight:400;
     font-display:swap; 
@@ -48,21 +48,21 @@
 
 @font-face {
     font-family: 'Source Serif Pro';
-    src: url('fonts/Sourceserifpro-Light.ttf') format('truetype');
+    src: url('/fonts/Sourceserifpro-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Source Serif Pro';
-    src: url('fonts/Sourceserifpro-Regular.ttf') format('truetype');
+    src: url('/fonts/Sourceserifpro-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Source Serif Pro';
-    src: url('fonts/source-serif-pro-bold.ttf') format('truetype');
+    src: url('/fonts/source-serif-pro-bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
@@ -844,3 +844,17 @@ footer {
     transform:translateY(-2px);     
 } 
 
+/* ==========================
+   АДАПТИВ
+========================== */
+@media(max-width:1200px){
+
+}
+
+@media(max-width:768px){
+
+}
+
+@media(max-width:480px){
+
+}

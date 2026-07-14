@@ -1,32 +1,30 @@
-fetch('modal.html')
-.then(response => response.text())
-.then(data => {
-
-    document.querySelector('#modal-container').innerHTML = data;
-
-    initModal();
-
-});
-
 const burger = document.querySelector('.burger');
 const menu = document.querySelector('.menu');
 
-burger.addEventListener('click', () => {
+if(burger){
+
+burger.addEventListener('click',()=>{
     menu.classList.toggle('active');
 });
+
+}
+
 const slider = document.querySelector('.cards-slider');
 const cards = document.querySelectorAll('.cards-slider .card');
 
 const sliderNextBtn = document.querySelector('.slider-next');
 const sliderPrevBtn = document.querySelector('.slider-prev');
 
+
+if(slider && cards.length > 0){
+
 let position = 0;
 
 const cardWidth = cards[0].offsetWidth + 40;
-const maxPosition = cards.length - 3; // 7 карточек, показываем 3
+const maxPosition = cards.length - 3;
 
 
-sliderNextBtn.addEventListener('click', () => {
+sliderNextBtn.addEventListener('click',()=>{
 
     if(position < maxPosition){
         position++;
@@ -37,7 +35,8 @@ sliderNextBtn.addEventListener('click', () => {
 
 });
 
-sliderPrevBtn.addEventListener('click', () => {
+
+sliderPrevBtn.addEventListener('click',()=>{
 
     if(position > 0){
         position--;
@@ -47,6 +46,8 @@ sliderPrevBtn.addEventListener('click', () => {
     `translateX(-${position * cardWidth}px)`;
 
 });
+
+}
 
 const places = [
     {
@@ -278,9 +279,10 @@ openButtons.forEach(button => {
 });
 
 
-closeModal.addEventListener('click',()=>{
+if(closeModal){closeModal.addEventListener('click',()=>{
     modal.classList.remove('active');
 });
+}
 
 startBtn.addEventListener('click',(e)=>{
 
@@ -294,6 +296,7 @@ startBtn.addEventListener('click',(e)=>{
 
 });
 
+
 /* ==========================
    тест
 ========================== */ 
@@ -302,12 +305,7 @@ let currentQuestion = 0;
 let userAnswers = [];
 
 const stepText = document.querySelector('.step');
-function renderQuestion(){
-    stepText.textContent = `Шаг ${currentQuestion + 1} из 4`;
-}
-
 const testTitle = document.querySelector('.modal-test h1');
-
 
 function renderQuestion(){
 
@@ -376,43 +374,47 @@ function showResult(){
 });
 
 const nextBtn = document.querySelector('.modal-next');
-nextBtn.addEventListener('click', ()=>{
 
-    if(currentQuestion < questions.length - 1){
+if(nextBtn){
+    nextBtn.addEventListener('click',()=>{
 
-        currentQuestion++;
-        renderQuestion();
+        if(currentQuestion < questions.length - 1){
 
-    } else {
+            currentQuestion++;
+            renderQuestion();
 
-        showResult();
+        } else {
 
-    }
+            showResult();
 
-});
+        }
+
+    });
+}
 
 const prevBtn = document.querySelector('.modal-prev');
 
-prevBtn.addEventListener('click',()=>{
+if(prevBtn){
+    prevBtn.addEventListener('click',()=>{
 
-    if(currentQuestion > 0){
+        if(currentQuestion > 0){
 
-        currentQuestion--;
-        renderQuestion();
+            currentQuestion--;
+            renderQuestion();
 
-    } else {
+        } else {
 
-        modalTest.classList.remove('active');
+            modalTest.classList.remove('active');
 
-        modalContent.classList.add('active');
+            modalContent.classList.add('active');
 
-        stepText.textContent = "";
-        userAnswers = [];
+            stepText.textContent = "";
+            userAnswers = [];
 
-    }
+        }
 
-});
-
+    });
+}
 /* ==========================
    карточки рез
 ========================== */
@@ -422,17 +424,19 @@ const modalCards = document.querySelector('.modal-cards');
 const resultBack = document.querySelector('.result-back');
 
 
-resultBack.addEventListener('click',()=>{
+if(resultBack){
+    resultBack.addEventListener('click',()=>{
 
-    resultBlock.classList.remove('active');
+        resultBlock.classList.remove('active');
 
-    modalTest.classList.add('active');
+        modalTest.classList.add('active');
 
-    currentQuestion = questions.length - 1;
+        currentQuestion = questions.length - 1;
 
-    renderQuestion();
+        renderQuestion();
 
-});
+    });
+}
 
 function getResults(){
     let scores = places.map(place=>{
@@ -467,3 +471,12 @@ modalCards.innerHTML = getResults().map(place =>`
 `).join('');
 }   
 }
+fetch('modal.html')
+.then(response => response.text())
+.then(data => {
+
+    document.querySelector('#modal-container').innerHTML = data;
+
+    initModal();
+
+});

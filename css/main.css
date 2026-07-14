@@ -262,17 +262,6 @@
     flex:0 0 calc((100% - 80px) / 3);
 }
 
-@media (max-width:1100px){
-    .mountain-photo{ width:700px; }
-    .construct-content h2{ font-size:48px; }
-}
-
-@media (max-width:900px){
-    .construct-grid{ grid-template-columns: 1fr; }
-    .mountain-photo{ position:static; width:100%; transform:none; margin-top:20px; }
-    .main-btn{ margin-top:8px; transform:none; align-self:center; }
-    .construct-content h2{ font-size:28px; }
-}
 .map-grid{
     display:grid;
     grid-template-columns:repeat(12,1fr);
@@ -406,4 +395,18 @@
 .hrebet{
     left:18%;
     top:92%;
+}
+/* ==========================
+   АДАПТИВ
+========================== */
+@media(max-width:1200px){
+
+}
+
+@media(max-width:768px){
+
+}
+
+@media(max-width:480px){
+
 }

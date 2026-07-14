@@ -61,8 +61,8 @@ if(dots[current]){
 
 }
 
-const next = document.querySelector('.slider-next');
-const prev = document.querySelector('.slider-prev');
+const next = document.querySelector('.history-prev');
+const prev = document.querySelector('.history-next');
 
 
 next.addEventListener('click',()=>{
