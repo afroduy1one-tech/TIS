@@ -40,6 +40,7 @@ const image = document.querySelector('.history-image');
 const year = document.querySelector('.history-year');
 const name = document.querySelector('.history-name');
 const text = document.querySelector('.history-text');
+const historyInfo = document.querySelector('.history-info');
 
 function showHistory(){
 
