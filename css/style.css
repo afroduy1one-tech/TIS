@@ -34,10 +34,18 @@
 }
 
 @font-face {
-    font-family:'Wadik Bold';
+    font-family:'Wadik';
     src:url('../fonts/Wadik.ttf') format('truetype');
     font-style:normal;
     font-weight:400;
+    font-display:swap; 
+}
+
+@font-face {
+    font-family:'Wadik Bold';
+    src:url('../fonts/Wadik.ttf') format('truetype');
+    font-style:normal;
+    font-weight:700;
     font-display:swap; 
 }
 
@@ -67,16 +75,41 @@
     box-sizing:border-box;
 }
 
+html{
+    width:100%;
+    overflow-x:hidden;
+}
+
 body{
+    width:100%;
+    min-width:320px;
     background:#F4F1EA;
     font-family:Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+main,
+header,
+footer,
+section{
+    width:100%;
+    max-width:100%;
 }
 
 .container{
-    width:calc(100% - 120px);
-    max-width:none;
+    width:100%;
+    max-width:1800px;
+    padding-inline:24px;
     margin:0 auto;
 }
+/* контейнер*/
+.container-main{
+    width:100%;
+    max-width:1440px;
+    padding-inline:24px;
+    margin:0 auto;
+}
+
 
 .header{
     height:68px;
@@ -94,18 +127,21 @@ body{
     position:relative;
     overflow:hidden;
     width:100%;
-    min-height:calc(100vh - 90px);
+    height:calc(100vh - 90px);
+    min-height:600px;
     border-radius:36px;
+    isolation:isolate
 }
 .hero-photo{
     position:absolute;
-    inset: 0; 
+    inset:0;
     width:100%;
     height:100%;
     object-fit:cover;
     object-position:center;
-    filter: saturate(0.7); 
-    z-index: -1;
+    filter:saturate(0.7);
+    z-index:0;
+
 }
 
 .logo{
@@ -182,18 +218,15 @@ font-weight: 700;
 font-weight: 700;
     font-size:22px;
 }
+
 .hero-grid{
-        display:grid;
-        grid-template-columns:repeat(12,1fr);
-        min-height:calc(100vh - 110px);
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+    height:100%;
     }
 
-/* контейнер*/
-.container-main{
-    width:1440px;
-    max-width:none;
-    margin:0 auto;
-}
 
 /* заголовки */
 .section-head{
@@ -201,8 +234,9 @@ font-weight: 700;
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:40px;
+    gap:20px;
     position:relative;
+    flex-wrap:wrap;
 }
 
 .section-head::before,
@@ -210,15 +244,18 @@ font-weight: 700;
     content: "";
     height: 3px;
     background: #3D4B39;
-    flex: 1;
+    flex: 1 1 40px;
+    min-width: 20px;
 }
 
 .section-head h2 {
-    font-family: Wadik, sans-serif;
-    font-size: 40px;
+    font-family: 'Wadik', sans-serif;
+    font-size: clamp(24px, 3vw, 40px);
     color: #3D4B39;
     letter-spacing: -0.02em;
-    white-space: nowrap;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.05;
 }
 /* Карточки */
 
@@ -255,31 +292,30 @@ font-weight: 700;
 }
 
 .card img{
-    margin-top: 5px;
     width:100%;
-    height: 60%;
+    height:250px;
     object-fit:cover;
     border-radius:40px;
 }
 
 .card h3{
-    font-family:Wadik;
+    font-family:'Wadik';
     color:#3D4B39;
-    font-size:24px;
+    font-size:20px;
     margin-top:15px;
     letter-spacing: -0.07em;
+    line-height:1.05;
 }
 
 .card p{
     font-family:'Panama Monospace';
     margin-top:15px;
-    font-size:20px;
+    font-size:clamp(16px, 1.8vw, 20px);
     color:#777;
     line-height:1.1;
     letter-spacing: -0.03em;
     text-align: start;
-    height: 80px;
-
+    min-height: 80px;
 }
 
 .card-footer{
@@ -316,8 +352,8 @@ font-weight: 700;
 
 .card-footer span {
     font-family:'Panama';
-font-weight: 700;
-    font-size: 26px;
+    font-weight: 700;
+    font-size: clamp(18px, 2vw, 26px);
     color: #3D4B39;
     cursor: pointer;
     transition: 0.3s;
@@ -327,7 +363,7 @@ font-weight: 700;
 footer {
     position: relative;
     overflow: hidden;
-    padding: 70px 0 0px;
+    padding: 70px 0 0;
     margin-bottom: 60px;
 }
 .footer-image {
@@ -340,7 +376,7 @@ footer {
 .footer-content {
     display: flex;
     flex-direction: column;
-    gap: 200px;
+    gap: 140px;
 }
 .footer-desc {
     display: flex;
@@ -351,7 +387,7 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: end;
-    gap: 60px;
+    gap: 40px;
 }
 .footer-desc p {
     font-family:'Panama';
@@ -380,6 +416,8 @@ footer {
     opacity:0.7;
     align-self: flex-end;
     line-height: 0.9;
+    max-width:100%;
+    overflow:hidden;
 }
 /* нижняячасть*/
 .footer-info ul {
@@ -845,14 +883,307 @@ footer {
 /* ==========================
    АДАПТИВ
 ========================== */
-@media(max-width:1200px){
+@media(max-width:1450px){
+    .footer-desc span {
+        font-size: 130px;
+    }
+    .footer-desc p {
+        font-size: 48px;
+    }
+    .footer-desc h2 {
+        font-size: 64px;
+    }
+}
 
+@media(max-width:1200px){
+    
+    .header{
+        height:auto;
+        padding:16px 0;
+    }
+
+    .header .container{
+        flex-wrap:wrap;
+        gap:16px;
+    }
+
+    .nav{
+        margin-left:0;
+    }
+
+    .nav ul{
+        gap:24px;
+    }
+
+    .hero-bg{
+        height:auto;
+        min-height:600px;
+        border-radius:24px;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+        padding:40px 24px 110px;
+        gap:24px;
+    }
+
+    .hero-info,
+    .hero-title{
+        grid-column:auto;
+        align-self:start;
+    }
+
+    .hero-info h2{
+        justify-content:flex-start;
+        font-size:clamp(64px, 9vw, 96px);
+    }
+
+    .hero-title h1{
+        font-size:clamp(72px, 12vw, 120px);
+    }
+
+    .hero-subtitle{
+        justify-content:flex-start;
+        transform:none;
+        margin-left:0;
+    }
+
+    .hero-text{
+        font-size:clamp(22px, 3.5vw, 32px);
+    }
+
+    .hero-btn{
+        width:min(320px, calc(100% - 40px));
+        bottom:32px;
+    }
+
+    .section-desc{
+        grid-column:1 / -1;
+        font-size:clamp(22px, 3vw, 32px);
+    }
+
+    .cards{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+    }
+    .footer-desc span {
+        margin-top: -40px;
+    }
+    .footer-desc h2 {
+        transform: translateX(0%);
+    }
+}
+
+@media(max-width:900px){
+    .hero-bg{
+        min-height:560px;
+    }
+
+    .hero-title h1{
+        font-size:clamp(60px, 10vw, 96px);
+    }
+
+    .hero-subtitle{
+        font-size:clamp(44px, 7vw, 78px);
+    }
+
+    .hero-info h2{
+        font-size:clamp(54px, 8vw, 78px);
+    }
+
+    .cards{
+        grid-template-columns:1fr 1fr;
+        gap:24px;
+    }
+    .card img{
+    width:100%;
+    height:200px;
+    
+}
+
+    .section-desc{
+        font-size:clamp(20px, 2.7vw, 26px);
+    }
+    .footer-desc span {
+        font-size: 80px;
+    }
 }
 
 @media(max-width:768px){
+    .container,
+    .container-main{
+        padding-inline:16px;
+    }
 
+    .hero-bg{
+        min-height:640px;
+        border-radius:20px;
+    }
+
+    .hero-grid{
+        padding:24px 20px 120px;
+        gap:18px;
+    }
+
+    .hero-title h1{
+        font-size:clamp(56px, 14vw, 96px);
+    }
+
+    .hero-info h2{
+        font-size:clamp(48px, 10vw, 80px);
+    }
+
+    .hero-btn{
+        width:calc(100% - 40px);
+        height:56px;
+        font-size:20px;
+        bottom:24px;
+    }
+
+    .card h3{
+    font-size:clamp(20px, 2.2vw, 24px);
+  
+}
+
+    .section-head h2{
+        font-size:clamp(22px, 4vw, 28px);
+    }
+
+    .section-head::before,
+    .section-head::after {
+        display:none;
+    }
+
+    .footer-content {
+        gap:56px;
+    }
+
+    .footer-info{
+        grid-template-columns:1fr;
+        gap:24px;
+        align-items:start;
+    }
+
+    .footer-info-center {
+        align-items:flex-start;
+        text-align:left;
+    }
+
+    .footer-info-right p,
+    .footer-info-center p,
+    .footer-info h2 {
+        text-align:left;
+    }
+
+    .footer-desc p{
+        font-size:40px;
+    }
+
+    .footer-desc h2{
+        font-size:56px;
+        transform:none;
+    }
+
+    .footer-desc span{
+        font-size:70px;
+    }
+}
+
+@media(max-width:600px){
+    .hero-bg{
+        min-height:560px;
+    }
+
+    .hero-grid{
+        padding:20px 16px 110px;
+    }
+
+    .hero-title h1{
+        font-size:clamp(46px, 13vw, 74px);
+    }
+
+    .hero-subtitle{
+        font-size:clamp(34px, 9vw, 56px);
+    }
+
+    .hero-info h2{
+        font-size:clamp(38px, 9vw, 60px);
+    }
+
+    .hero-btn{
+        font-size:18px;
+        height:52px;
+    }
+
+    .section-desc{
+        font-size:20px;
+    }
+
+    .card{
+        padding:10px 10px 16px;
+    }
+
+    .card p{
+        min-height:60px;
+    }
+
+    .card-footer{
+        gap:12px;
+    }
+
+    .card-footer a{
+        width:40px;
+        height:40px;
+    }
+
+    .footer-desc p{
+        font-size:30px;
+    }
+
+    .footer-desc h2{
+        font-size:44px;
+    }
+
+    .footer-desc span{
+        font-size:52px;
+    }
 }
 
 @media(max-width:480px){
+    .container,
+    .container-main{
+        padding-inline:14px;
+    }
 
+    .hero-bg{
+        min-height:540px;
+    }
+
+    .hero-grid{
+        padding:20px 16px 110px;
+    }
+
+    .hero-btn{
+        font-size:18px;
+        height:52px;
+    }
+
+    .section-head h2{
+        font-size:22px;
+    }
+
+    .footer-content {
+        gap:40px;
+    }
+
+    .footer-desc p{
+        font-size:32px;
+    }
+
+    .footer-desc h2{
+        font-size:44px;
+    }
+
+    .footer-desc span{
+        font-size:52px;
+    }
 }

@@ -1,10 +1,10 @@
 .log-title h1{
     align-self: start;
     font-family:'Panama';
-font-weight: 700;
-    font-size:150px;
+    font-weight: 700;
+    font-size:clamp(72px, 9vw, 150px);
     letter-spacing:-0.03em;
-    color: #fff;;
+    color: #fff;
     transform: scaleY(1.7);
     opacity: 0.9;
     display:grid;
@@ -26,10 +26,10 @@ font-weight: 700;
 .log-text p{
     align-self: start;
     font-family:'Panama';
-font-weight: 700;
-    font-size:32px;
+    font-weight: 700;
+    font-size:clamp(22px, 2.6vw, 32px);
     letter-spacing:0.02em;
-    color: #fff;;
+    color: #fff;
     display:grid;
     width:max-content;
     line-height: 1.2em;
@@ -39,7 +39,6 @@ font-weight: 700;
     grid-column:8/12;
     align-self:end;
     margin-bottom:450px;
-    
 }
 .features-card-images h3{
     position:absolute;
@@ -48,10 +47,11 @@ font-weight: 700;
     justify-content:center;
     align-items:center;
     font-family:'Wadik Bold';
-    font-size:24px;
+    font-size:clamp(18px, 2vw, 24px);
     color:#fff;
     text-align:center;
     text-transform:uppercase;
+    padding:20px;
 }
 
 .route-log{
@@ -66,7 +66,7 @@ font-weight: 700;
     text-align: left;
     font-family: 'Source Serif Pro', serif;
     font-weight: 300;
-    font-size:32px;
+    font-size:clamp(20px, 2.4vw, 32px);
     line-height:1.0;
     letter-spacing: -0.008em;
 }
@@ -82,13 +82,39 @@ font-weight: 700;
    АДАПТИВ
 ========================== */
 @media(max-width:1200px){
+    .log-text{
+        margin-bottom:220px;
+    }
+}
 
+@media(max-width:900px){
+    .log-title,
+    .log-subtitle,
+    .log-text{
+        grid-column:1 / -1;
+    }
+
+    .log-subtitle{
+        margin-top:40px;
+    }
+
+    .log-text{
+        margin-bottom:80px;
+    }
 }
 
 @media(max-width:768px){
-
+    .route-log-desc{
+        max-width:100%;
+    }
 }
 
 @media(max-width:480px){
+    .log-title h1{
+        font-size:56px;
+    }
 
+    .log-text p{
+        font-size:20px;
+    }
 }

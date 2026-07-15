@@ -1,10 +1,10 @@
 .ostrov-title h1{
     align-self: start;
     font-family:'Panama';
-font-weight: 700;
-    font-size:150px;
+    font-weight: 700;
+    font-size:clamp(72px, 9vw, 150px);
     letter-spacing:-0.03em;
-    color: #fff;;
+    color: #fff;
     transform: scaleY(1.7);
     opacity: 0.9;
     display:grid;
@@ -15,16 +15,15 @@ font-weight: 700;
     grid-column:2/8;
     align-self:start;
     margin-top:300px;
-
 }
 
 .ostrov-subtitle h2{
     align-self: start;
     font-family:'Panama';
-font-weight: 700;
-    font-size:150px;
+    font-weight: 700;
+    font-size:clamp(72px, 9vw, 150px);
     letter-spacing:-0.03em;
-    color: #fff;;
+    color: #fff;
     transform: scaleY(1.7);
     opacity: 0.9;
     display:grid;
@@ -41,10 +40,10 @@ font-weight: 700;
 .ostrov-text p{
     align-self: start;
     font-family:'Panama';
-font-weight: 700;
-    font-size:32px;
+    font-weight: 700;
+    font-size:clamp(22px, 2.6vw, 32px);
     letter-spacing:0.02em;
-    color: #fff;;
+    color: #fff;
     display:grid;
     width:max-content;
     text-align: right;
@@ -54,7 +53,6 @@ font-weight: 700;
     grid-column:8/12;
     align-self:end;
     margin-bottom:180px;
-    
 }
 .features-card-images h3{
     position:absolute;
@@ -62,12 +60,13 @@ font-weight: 700;
     left:50%;
     transform:translateX(-50%);
     font-family:'Wadik Bold';
-    font-size:24px;
+    font-size:clamp(18px, 2vw, 24px);
     line-height:1;
     color:#fff;
     text-align:center;
     text-transform:uppercase;
     width:100%;
+    padding:0 20px;
 }
 .history-ostrov{
     padding-top:70px;
@@ -105,7 +104,7 @@ font-weight: 700;
 .history-info h3{
     font-family: 'Wadik';
     color: #890000;
-    font-size: 100px;
+    font-size: clamp(56px, 7vw, 100px);
     letter-spacing:-0.07em;
     transform: scaleY(2.5);
     text-align: center;
@@ -115,23 +114,21 @@ font-weight: 700;
 .history-info h4{
     font-family: 'Wadik';
     color: #000;
-    font-size: 32px;
+    font-size: clamp(24px, 3vw, 32px);
     letter-spacing:-0.04em;
     text-align: center;
     margin:0;
-
 }
 
 .history-info p{
     font-family: 'Source Serif Pro';
     color: #000;
     font-weight: 300;
-    font-size: 30px;
+    font-size: clamp(18px, 2.2vw, 30px);
     letter-spacing:-0.05em;
     text-align:right;
     line-height: 1.1em;
     margin:0;
-
 }
 
 .history-arrows{
@@ -219,14 +216,68 @@ font-weight: 700;
 
 /* ==========================
    АДАПТИВ
-========================== */@media(max-width:1200px){
+========================== */
+@media(max-width:1200px){
+    .ostrov-title,
+    .ostrov-subtitle{
+        margin-top:160px;
+    }
+}
 
+@media(max-width:900px){
+    .ostrov-title,
+    .ostrov-subtitle,
+    .ostrov-text{
+        grid-column:1 / -1;
+    }
+
+    .ostrov-subtitle{
+        margin-top:40px;
+    }
+
+    .ostrov-text{
+        margin-bottom:80px;
+    }
+
+    .history-content{
+        flex-direction:column;
+        gap:24px;
+    }
+
+    .history-image,
+    .history-info{
+        width:100%;
+    }
+
+    .history-info{
+        height:auto;
+        gap:16px;
+    }
+
+    .history-info p{
+        text-align:left;
+    }
 }
 
 @media(max-width:768px){
-
+    .history-image{
+        height:280px;
+    }
 }
 
 @media(max-width:480px){
+    .ostrov-title h1,
+    .ostrov-subtitle h2{
+        font-size:56px;
+    }
 
+    .ostrov-text p{
+        font-size:20px;
+    }
+
+    .history-arrows button{
+        width:40px;
+        height:40px;
+        font-size:28px;
+    }
 }

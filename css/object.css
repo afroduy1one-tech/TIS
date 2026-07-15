@@ -11,7 +11,7 @@
     grid-column:1/9;
     font-family: 'Source Serif Pro', serif;
     font-weight: 300;
-    font-size:32px;
+    font-size:clamp(20px, 2.4vw, 32px);
     line-height:1.0;
     letter-spacing: -0.008em;
 }
@@ -58,15 +58,16 @@
     justify-content:center;
     align-items:center;
     font-family:'Wadik Bold';
-    font-size:24px;
+    font-size:clamp(18px, 2vw, 24px);
     color:#fff;
     text-align:center;
     text-transform:uppercase;
+    padding:20px;
 }
 
 .features-card-text h3{
     font-family:'Wadik Bold';
-    font-size:24px;
+    font-size:clamp(20px, 2.2vw, 24px);
     line-height:1;
     color:#3D4B39;
     text-transform:uppercase;
@@ -74,7 +75,7 @@
 }
 .features-card-text{
     background:#F4F1EA;
-    padding:50px;
+    padding:clamp(24px, 3vw, 50px);
     display:grid;
     grid-template-rows:auto auto;
     column-gap:20px;
@@ -89,7 +90,7 @@
     margin-top:25px;
     font-family:'Source Serif Pro';
     font-weight:300;
-    font-size:24px;
+    font-size:clamp(18px, 1.8vw, 24px);
     line-height:1.15;
     letter-spacing: -0.03em;
     color:#3D4B39;
@@ -124,7 +125,7 @@
     text-align: right;
     font-family: 'Source Serif Pro', serif;
     font-weight: 300;
-    font-size:32px;
+    font-size:clamp(20px, 2.4vw, 32px);
     line-height:1.0;
     letter-spacing: -0.008em;
 }
@@ -138,10 +139,11 @@
 .section-head-left h2{
     margin:0;
     font-family:Wadik,sans-serif;
-    font-size:40px;
+    font-size:clamp(24px, 3vw, 40px);
     color:#3D4B39;
     letter-spacing:-0.02em;
-    white-space:nowrap;
+    white-space:normal;
+    line-height:1.05;
 }
 
 .section-head-left::after{
@@ -149,6 +151,7 @@
     flex:1;
     height:3px;
     background:#3D4B39;
+    min-width:20px;
 }
 .section-head-right{
     grid-column:1 / 13;
@@ -162,15 +165,17 @@
     flex:1;
     height:3px;
     background:#3D4B39;
+    min-width:20px;
 }
 
 .section-head-right h2{
     margin:0;
     font-family:Wadik,sans-serif;
-    font-size:40px;
+    font-size:clamp(24px, 3vw, 40px);
     color:#3D4B39;
     letter-spacing:-0.02em;
-    white-space:nowrap;
+    white-space:normal;
+    line-height:1.05;
 }
 .cards-route{
     grid-template-columns:repeat(3,1fr);
@@ -197,14 +202,14 @@
     text-align: left;
     font-family: 'Source Serif Pro', serif;
     font-weight: 300;
-    font-size:32px;
+    font-size:clamp(20px, 2.4vw, 32px);
     line-height:1.0;
     letter-spacing: -0.008em;
 }
 .visit-desc span{
     grid-column: 7/12;
     font-family: 'coventryC';
-    font-size: 86px;
+    font-size: clamp(44px, 5vw, 86px);
     letter-spacing: -0.04em;
     color: #890000;
     transform: translateX(25%);
@@ -232,7 +237,7 @@
 
 .visit-info h3{
     font-family:'Wadik';
-    font-size:24px;
+    font-size:clamp(20px, 2.2vw, 24px);
     text-align:center;
     color:#171615;
     letter-spacing:-0.05em;
@@ -266,7 +271,7 @@
 
 .visit-info h4{
     font-family:'Wadik';
-    font-size:16px;
+    font-size:clamp(14px, 1.6vw, 16px);
     color:#3D4B39;
     margin:0;
     align-items:center;
@@ -274,11 +279,11 @@
 
 .visit-info p{
     font-family:'Panama Monospace';
-    font-size:20px;
+    font-size:clamp(16px, 1.8vw, 20px);
     color:#3D4B39;
     letter-spacing:-0.03em;
     line-height:1em;
-    width:370px;
+    width:min(370px, 100%);
     margin:0;
 }
 
@@ -302,13 +307,13 @@
 .price p{
     margin: 0;
     font-family: 'Wadik';
-    font-size: 20px;
+    font-size: clamp(16px, 1.8vw, 20px);
     color: #171615;
 }
 .price span{
     margin: 0;
     font-family: 'coventryC';
-    font-size: 64px;
+    font-size: clamp(36px, 4.8vw, 64px);
     color: #890000;
 }
 
@@ -316,13 +321,127 @@
    АДАПТИВ
 ========================== */
 @media(max-width:1200px){
+    .features-card{
+        gap:24px;
+    }
 
+    .visit-info{
+        gap:40px;
+    }
+
+    .transport{
+        padding-right:24px;
+    }
+
+    .place-info{
+        padding-left:24px;
+    }
+}
+
+@media(max-width:900px){
+    .features-card{
+        grid-template-columns:1fr;
+    }
+
+    .section-head-left,
+    .section-head-right{
+        flex-wrap:wrap;
+    }
+
+    .section-head-left::after,
+    .section-head-right::before{
+        display:none;
+    }
+
+    .route-desc{
+        grid-column:1 / -1;
+        text-align:left;
+    }
+
+    .visit-grid{
+        margin-bottom:24px;
+    }
+
+    .visit-info{
+        grid-template-columns:1fr;
+        gap:24px;
+    }
+
+    .visit-info::before{
+        display:none;
+    }
+
+    .transport,
+    .place-info{
+        padding:0;
+    }
+
+    .car,
+    .bus,
+    .ropeway,
+    .place-time{
+        min-height:auto;
+        gap:12px;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .car p,
+    .ropeway p,
+    .place-time p,
+    .bus p{
+        text-align:left;
+        width:100%;
+    }
+
+    .price{
+        justify-content:flex-start;
+        flex-wrap:wrap;
+    }
 }
 
 @media(max-width:768px){
+    .features,
+    .route-continue,
+    .before-visit{
+        padding-top:48px;
+    }
 
+    .features-text,
+    .route-desc,
+    .visit-desc p{
+        grid-column:1 / -1;
+    }
+
+    .visit-desc span{
+        grid-column:1 / -1;
+        transform:none;
+        text-align:left;
+    }
 }
 
 @media(max-width:480px){
+    .features-card-text{
+        padding:20px;
+    }
 
+    .features-card-text img{
+        width:140px;
+    }
+
+    .visit-info h3{
+        text-align:left;
+    }
+
+    .cards-route{
+        grid-template-columns:1fr;
+    }
+
+    .visit-info h4{
+        font-size:14px;
+    }
+
+    .visit-info p{
+        font-size:15px;
+    }
 }
