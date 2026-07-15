@@ -1,6 +1,7 @@
 .log-title h1{
     align-self: start;
-    font-family:'Panama Bold';
+    font-family:'Panama';
+font-weight: 700;
     font-size:150px;
     letter-spacing:-0.03em;
     color: #fff;;
@@ -24,7 +25,8 @@
 
 .log-text p{
     align-self: start;
-    font-family:'Panama Bold';
+    font-family:'Panama';
+font-weight: 700;
     font-size:32px;
     letter-spacing:0.02em;
     color: #fff;;

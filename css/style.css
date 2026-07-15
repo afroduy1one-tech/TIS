@@ -1,23 +1,18 @@
-/* Panama Regular */
 @font-face {
-    font-family:'Panama Regular';
-    src:url('/fonts/Panama-Regular.ttf') format('truetype');
+    font-family:'Panama';
+    src:url('../fonts/Panama-Regular.ttf');
     font-weight:400;
-    font-style:normal;
-    font-display:swap;
 }
-/* Panama Bold */
+
 @font-face {
-    font-family:'Panama Bold';
-    src:url('/fonts/Panama-Bold.ttf') format('truetype');
+    font-family:'Panama';
+    src:url('../fonts/Panama-Bold.ttf');
     font-weight:700;
-    font-style:normal;
-    font-display:swap;
 }
 /* Panama Monospace Regular */
 @font-face {
     font-family:'Panama Monospace';
-    src:url('/fonts/Panama-Monospace-Regular.ttf') format('truetype');
+    src:url('../fonts/PanamaMonospace-Regular.ttf') format('truetype');
     font-weight:400;
     font-style:normal;
     font-display:swap;
@@ -25,14 +20,14 @@
 /* Panama Monospace Bold */
 @font-face {
     font-family:'Panama Monospace Bold';
-    src:url('/fonts/Panama-Monospace-Bold.ttf') format('truetype');
+    src:url('../fonts/PanamaMonospace-Bold.ttf') format('truetype');
     font-weight:700;
     font-style:normal;
     font-display:swap;
 }
 @font-face {
     font-family:'coventryC';
-    src:url('/fonts/coventryc.ttf') format('truetype');
+    src:url('../fonts/coventryc.ttf') format('truetype');
     font-style:normal;
     font-weight:400;
     font-display:swap; 
@@ -40,7 +35,7 @@
 
 @font-face {
     font-family:'Wadik Bold';
-    src:url('/fonts/Wadik.ttf') format('truetype');
+    src:url('../fonts/Wadik.ttf') format('truetype');
     font-style:normal;
     font-weight:400;
     font-display:swap; 
@@ -48,21 +43,21 @@
 
 @font-face {
     font-family: 'Source Serif Pro';
-    src: url('/fonts/Sourceserifpro-Light.ttf') format('truetype');
+    src: url('../fonts/SourceSerifPro-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Source Serif Pro';
-    src: url('/fonts/Sourceserifpro-Regular.ttf') format('truetype');
+    src: url('../fonts/SourceSerifPro-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Source Serif Pro';
-    src: url('/fonts/source-serif-pro-bold.ttf') format('truetype');
+    src: url('../fonts/SourceSerifPro-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
@@ -133,7 +128,8 @@ body{
 .nav a{
     text-decoration:none;
     color:#111;
-    font-family:'Panama Bold';
+    font-family:'Panama';
+font-weight: 700;
     font-size:20px;
 }
 .burger{
@@ -160,11 +156,9 @@ body{
     padding:25px;
     background:#F0ECE4;
     border-radius:36px;
-
     opacity:0;
     visibility:hidden;
     transform:translateY(-10px);
-
     transition:.3s;
     z-index:3;
 }
@@ -184,7 +178,8 @@ body{
 .menu a{
     text-decoration:none;
     color:#3D4B39;
-    font-family:'Panama Bold';
+    font-family:'Panama';
+font-weight: 700;
     font-size:22px;
 }
 .hero-grid{
@@ -320,7 +315,8 @@ body{
 }   
 
 .card-footer span {
-    font-family: 'Panama Bold';
+    font-family:'Panama';
+font-weight: 700;
     font-size: 26px;
     color: #3D4B39;
     cursor: pointer;
@@ -358,7 +354,8 @@ footer {
     gap: 60px;
 }
 .footer-desc p {
-    font-family: 'Panama Bold', monospace;
+    font-family:'Panama';
+    font-weight: 700;
     font-size: 64px;
     line-height: 1.1;
     color: #000;
@@ -375,9 +372,10 @@ footer {
     line-height: 0.9;
 }
 .footer-desc span {
-    font-family:'Panama-Bold';
+    font-family:'Panama';
+    font-weight: 700;   
     font-size:150px;
-    letter-spacing:0.01em;
+    letter-spacing:0.05em;
     color:#fff;
     opacity:0.7;
     align-self: flex-end;

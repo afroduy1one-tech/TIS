@@ -8,21 +8,23 @@
 .hero-title{
     grid-column:6/13;
     align-self:start;
-    padding-top:50px;
+    padding-top:40px;
     
 }
 
 .hero-title h1{
     padding-left: 10px;
     align-self: start;
-    font-family:'Panama-Bold';
-    font-size:150px;
-    letter-spacing:0.06em;
-    color: #fff;;
-    transform: scaleY(1.7);
+    font-family:'Panama';
+font-weight: 700;
+    font-size:220px;
+    letter-spacing:0.03em;
+    color: #ffffff;;
+    transform: scaleY(1.4);
     opacity: 0.7;
     display:block;
     width:max-content;
+    line-height: 1.2em;
 }
 
 .hero-subtitle{
@@ -177,7 +179,8 @@
 }
 
 .construct-content span{
-    font-family: 'Panama Bold';
+    font-family:'Panama';
+font-weight: 700;
     font-size: 32px;
     color: #000;
 }
@@ -361,7 +364,8 @@
 }
 .map-popup a{
     text-decoration:none;
-    font-family: 'Panama Bold';
+    font-family:'Panama';
+font-weight: 700;
     font-size: 20px;    
     color:#3D4B39;
     margin-bottom:5px;
