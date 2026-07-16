@@ -8,45 +8,73 @@ burger.addEventListener('click',()=>{
 });
 
 }
-
 const slider = document.querySelector('.cards-slider');
 const cards = document.querySelectorAll('.cards-slider .card');
 
 const sliderNextBtn = document.querySelector('.slider-next');
 const sliderPrevBtn = document.querySelector('.slider-prev');
 
+if (slider && cards.length > 0) {
+    let position = 0;
 
-if(slider && cards.length > 0){
+    const getGap = () => parseFloat(getComputedStyle(slider).gap || getComputedStyle(slider).columnGap || '40');
 
-let position = 0;
+    const getVisibleCards = () => {
+        const width = slider.parentElement?.clientWidth || window.innerWidth;
 
-const cardWidth = cards[0].offsetWidth + 40;
-const maxPosition = cards.length - 3;
+        if (width < 768) return 1;
+        if (width < 1100) return 2;
+        return 3;
+    };
 
+    const updateSlider = () => {
+        const visibleCards = getVisibleCards();
+        const containerWidth = slider.parentElement?.clientWidth || window.innerWidth;
+        const gap = getGap();
 
-sliderNextBtn.addEventListener('click',()=>{
+        const cardWidth = (containerWidth - gap * (visibleCards - 1)) / visibleCards;
 
-    if(position < maxPosition){
-        position++;
-    }
+        cards.forEach(card => {
+            card.style.flex = '0 0 auto';
+            card.style.width = `${cardWidth}px`;
+            card.style.maxWidth = `${cardWidth}px`;
+            card.style.minWidth = '0';
+        });
 
-    slider.style.transform =
-    `translateX(-${position * cardWidth}px)`;
+        requestAnimationFrame(() => {
+            const actualCardWidth = cards[0]?.getBoundingClientRect().width || cardWidth;
+            const actualGap = getGap();
 
-});
+            const maxPosition = Math.max(0, cards.length - visibleCards);
+            position = Math.min(position, maxPosition);
 
+            slider.style.transform = `translateX(-${position * (actualCardWidth + actualGap)}px)`;
 
-sliderPrevBtn.addEventListener('click',()=>{
+            if (sliderPrevBtn) sliderPrevBtn.disabled = position === 0;
+            if (sliderNextBtn) sliderNextBtn.disabled = position >= maxPosition;
+        });
+    };
 
-    if(position > 0){
-        position--;
-    }
+    sliderNextBtn?.addEventListener('click', () => {
+        const visibleCards = getVisibleCards();
+        const maxPosition = Math.max(0, cards.length - visibleCards);
 
-    slider.style.transform =
-    `translateX(-${position * cardWidth}px)`;
+        if (position < maxPosition) {
+            position++;
+            updateSlider();
+        }
+    });
 
-});
+    sliderPrevBtn?.addEventListener('click', () => {
+        if (position > 0) {
+            position--;
+            updateSlider();
+        }
+    });
 
+    window.addEventListener('resize', updateSlider);
+    window.addEventListener('load', updateSlider);
+    updateSlider();
 }
 
 const places = [
