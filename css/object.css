@@ -338,9 +338,47 @@
     }
 }
 
+@media(max-width:1100px){
+    .features-card-text img{
+    width:160px;
+}
+
+}
+
+
+@media(max-width:1100px){
+    .cards.cards-route{
+        grid-template-columns:repeat(2, 1fr);
+        gap:25px;
+    }
+
+    .cards.cards-route .card:last-child{
+        grid-column:1 / 3;
+        width:50%;
+        justify-self:center;
+    }
+}
+
 @media(max-width:900px){
     .features-card{
         grid-template-columns:1fr;
+    }
+     .features-card-text{
+        display:grid;
+        grid-template-columns:1fr 120px;
+        align-items:center;
+        gap:20px;
+    }
+
+    .features-card-text h3,
+    .features-card-text p{
+        grid-column:1;
+    }
+
+    .features-card-text img{
+        grid-column:2;
+        grid-row:1 / 3;
+        width:100%;
     }
 
     .section-head-left,
@@ -404,7 +442,7 @@
     .features,
     .route-continue,
     .before-visit{
-        padding-top:48px;
+        padding-top:30px;
     }
 
     .features-text,
@@ -418,11 +456,41 @@
         transform:none;
         text-align:left;
     }
+  .features-card {
+        margin-top: 10px;
+        gap: 25px;
+    }
+    
 }
 
+@media(max-width:500px){
+
+        .features-card {
+        gap: 10px;
+    }
+}
+
+
+@media(max-width:640px){
+
+    .cards.cards-route{
+        grid-template-columns:1fr;
+    }
+
+    .cards.cards-route .card:last-child{
+        grid-column:auto;
+        width:100%;
+    }
+
+}
 @media(max-width:480px){
+    .features,
+    .route-continue,
+    .before-visit{
+        padding-top:0px;
+    }
     .features-card-text{
-        padding:20px;
+        padding:16px;
     }
 
     .features-card-text img{
@@ -444,4 +512,35 @@
     .visit-info p{
         font-size:15px;
     }
+    
+    .features-text {
+        font-size: 18px;
+    }
+    .features-card-text{
+        grid-template-columns:1fr;
+    }
+
+    .features-card-text h3,
+    .features-card-text p{
+        grid-column:1;
+    }
+
+    .features-card-text img{
+        grid-column:1;
+        grid-row:auto;
+        width:140px;
+        justify-self:center;
+    }
+}
+
+@media(max-width:380px){
+    .features-card-text p{
+        font-size:16px;
+    }
+
+    .features-card-text img{
+        width:100px;
+    }
+
+
 }

@@ -6,7 +6,7 @@
     letter-spacing:-0.03em;
     color: #fff;
     transform: scaleY(1.7);
-    opacity: 0.8;
+    opacity: 0.9;
     display:grid;
     width:max-content;
 }
@@ -27,7 +27,7 @@
     transform: scaleY(1.7);
     opacity: 0.8;
     display:grid;
-    width:max-content;
+    width:max-content;  
     text-align: right;
 }
 
@@ -39,20 +39,24 @@
 
 .sopka-text p{
     align-self: start;
-    font-family:'Panama';
-    font-weight: 700;
-    font-size:clamp(22px, 2.6vw, 32px);
-    letter-spacing:0.02em;
-    color: #fff;
-    display:grid;
-    width:max-content;
-    text-align: right;
+        font-family:'Panama';
+        font-weight: 700;
+        font-size:clamp(22px, 2.6vw, 32px);
+        letter-spacing:0.02em;
+        color: #fff;
+        display:grid;
+        width:100%
 }
 
 .sopka-text{
-    grid-column:7/11;
-    align-self:end;
-    margin-bottom:250px;
+    grid-column:1/12;
+    justify-self:end;
+    text-align:right;
+    max-width:100%;
+    min-width:0;
+    overflow:hidden;
+    margin-bottom:30px;
+    line-height: 1.6em;
 }
 
 .features-card-images h3{
@@ -202,7 +206,7 @@
 }
 .point-7{
     left:90%;
-    top:47%;
+    top:44%;
 }
 .point-8{
     left:56%;
@@ -212,7 +216,7 @@
 .arrow-sopka{
     position:absolute;
     top:150px;
-    left:65%;
+    left:75%;
     z-index:2;
 }
 /* ==========================
@@ -223,8 +227,26 @@
         margin-bottom:140px;
     }
 }
+@media(max-width:1340px){
+    .arrow-sopka{
+    position:absolute;
+    top:150px;
+    left:75%;
+    z-index:2;
+    width: 230px;
+}
+
+}
+
+@media(max-width:1000px){
+    .arrow-sopka{
+        width: 180px;
+    }
+
+}
 
 @media(max-width:900px){
+    
     .sopka-title,
     .sopka-subtitle,
     .sopka-text{
@@ -232,22 +254,37 @@
     }
 
     .sopka-subtitle{
-        margin-top:40px;
+        margin-top:0px;
     }
 
     .sopka-text{
-        margin-bottom:80px;
+        margin-bottom:50px;
     }
+    .arrow-sopka{    
+    width: 160px;
+}
 
-    .arrow-sopka{
-        display:none;
-    }
+
 }
 
 @media(max-width:768px){
+    .arrow-sopka{
+    display: none;
+}
     .sopka-map-text{
         max-width:100%;
     }
+    .sopka-text{
+         margin-top:40px;
+    }
+
+    .sopka-text p{
+        font-size: 20px;
+    }
+    .sopka-map {
+    padding-top: 50px;
+    position: relative;
+}
 }
 
 @media(max-width:480px){
@@ -272,4 +309,15 @@
     .label p{
         font-size:13px;
     }
+}
+@media(max-width:390px){
+    .sopka-title h1,
+    .sopka-subtitle h2{
+        font-size:48px;
+    }
+
+    .sopka-text p{
+        font-size:18px;
+    }
+
 }

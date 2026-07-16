@@ -8,13 +8,13 @@
     transform: scaleY(1.7);
     opacity: 0.9;
     display:grid;
-    width:max-content;
+    width:max-content;  
 }
 
 .ostrov-title{
-    grid-column:2/8;
+    grid-column:2/5;
     align-self:start;
-    margin-top:300px;
+    margin-top:230px;
 }
 
 .ostrov-subtitle h2{
@@ -32,8 +32,11 @@
 }
 
 .ostrov-subtitle{
-    grid-column:8/11;
-    align-self:center;
+    grid-column:6/12;
+    justify-self:end;
+    text-align:right;
+    min-width:0;
+    overflow:hidden;    
     margin-top:300px;
 }
 
@@ -50,9 +53,14 @@
 }
 
 .ostrov-text{
-    grid-column:8/12;
-    align-self:end;
-    margin-bottom:180px;
+    grid-column:1/12;
+    justify-self:end;
+    text-align:right;
+    max-width:100%;
+    min-width:0;
+    overflow:hidden;
+    margin-bottom:18    0px;
+    line-height: 1.6em;
 }
 .features-card-images h3{
     position:absolute;
@@ -108,7 +116,7 @@
     letter-spacing:-0.07em;
     transform: scaleY(2.5);
     text-align: center;
-    margin:0;
+    margin:20px;
 }
 
 .history-info h4{
@@ -280,4 +288,10 @@
         height:40px;
         font-size:28px;
     }
+}
+
+@media(max-width:450px){
+    .ostrov-text p{
+        font-size:16px;
+    }       
 }
