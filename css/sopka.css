@@ -63,13 +63,12 @@
     position:absolute;
     top:35px;
     right:35px;
-    font-family:'Wadik Bold';
+    font-family:'Wadik';
     font-size:clamp(18px, 2vw, 24px);
     line-height:1;
     color:#fff;
     text-align:right;
     text-transform:uppercase;
-    padding:20px;
 }
 
 .sopka-map{
@@ -79,7 +78,7 @@
 
 .sopka-map-text{
     max-width:74%;
-    margin:40px 0 70px;
+    margin:30px 0 70px;
     text-align: left;
     font-family: 'Source Serif Pro', serif;
     font-weight: 300;
@@ -91,15 +90,29 @@
 .panorama{
     position:relative;
     width:100%;
+    aspect-ratio:1500 / 580;
+    
+    z-index:10;
 }
 
 .panorama-image{
-    display:block;
+    position:absolute;
+    inset:0;
     width:100%;
-    height:auto;
+    height:100%;
+    object-fit:fill;
 }
 
+.panorama-scroll{
+    overflow-x:auto;
+    overflow-y:visible;
+    padding-top:100px;
+    margin-top:-100px;
+}
+
+
 .point{
+    overflow:visible;
     position:absolute;
     width:18px;
     height:18px;
@@ -107,10 +120,13 @@
     background:transparent;
     cursor:pointer;
     padding:0;
-
+    z-index:10;
     transition:transform .25s;
+    appearance:none;
+    -webkit-appearance:none;
 }
 .point:hover{
+    z-index:100;
     transform:translateY(-6px);
 }
 
@@ -143,21 +159,23 @@
     height:61px;
 }
 
-.label{
-    position:absolute;
-    left:50%;
-    bottom:25px;
-    transform:translateX(-50%);
-    min-width:180px;
-    background:#F4F1EA;
-    border-radius:30px;
-    padding:12px 18px;
-    text-align:center;
-    opacity:0;
-    visibility:hidden;
-    transition:.3s;
-    border:1px solid #364A33; 
-}
+    .label{
+        position:absolute;
+        left:50%;
+        bottom:20px;
+        transform:translateX(-50%);
+        background:#F4F1EA;
+        border-radius:30px;
+        padding:12px 18px;
+        text-align:center;
+        opacity:0;
+        visibility:hidden;
+        transition:.3s;
+        border:1px solid #364A33; 
+         z-index:333;
+
+        
+    }
 
 .point:hover .label{
     opacity:1;
@@ -222,10 +240,187 @@
 /* ==========================
    АДАПТИВ
 ========================== */
+@media(max-width:1360px){
+    
+.point-1{
+    top:33%;
+}
+
+.point-2{
+    top:32%;
+}
+
+.point-3{
+    top:28%;
+}
+
+.point-4{
+    top:28%;
+}
+
+.point-5{
+    top:27%;
+}
+.point-6{
+    top:26%;
+}
+.point-7{
+    top:41%;
+}
+.point-8{
+    top:34%;
+}
+
+}
+@media(max-width:1100px){
+
+.point-1{
+    top:29%;
+}
+
+.point-2{
+    top:28%;
+}
+
+.point-3{
+    top:25%;
+}
+
+.point-4{
+    top:25%;
+}
+
+.point-5{
+    top:24%;
+}
+.point-6{
+    top:22%;
+}
+.point-7{
+    top:37%;
+}
+.point-8{
+    top:32%;
+}
+
+}
+@media(max-width:1000px){
+
+
+.point-2{
+    top:26%;
+}
+
+.point-3{
+    top:23%;
+}
+
+.point-4{
+    top:25%;
+}
+
+.point-5{
+    top:22%;
+}
+.point-6{
+    top:20%;
+}
+.point-7{
+    top:35%;
+}
+.point-8{
+    top:30%;
+}
+
+}
+@media(max-width:900px){
+
+.point-1{
+    top:26%;
+}
+
+.point-2{
+    top:23%;
+}
+
+.point-3{
+    top:20%;
+}
+
+.point-4{
+    top:23%;
+}
+
+.point-5{
+    top:20%;
+}
+.point-6{
+    top:18%;
+}
+.point-7{
+    top:32%;
+}
+.point-8{
+    top:27%;
+}
+
+}
+@media(max-width:780px){
+    .point::after {
+    height: 50px;
+}
+
+.point-1{
+    top:24%;
+}
+
+.point-2{
+    top:20%;
+}
+
+.point-3{
+    top:18%;
+}
+
+.point-4{
+    top:20%;
+}
+
+.point-5{
+    top:17%;
+}
+.point-6{
+    top:16%;
+}
+.point-7{
+    top:30%;
+}
+.point-8{
+    top:25%;
+}
+
+}
+@media(max-width:780px){
+    .point::after {
+    height: 45px;
+}
+}
+
+
 @media(max-width:1200px){
+    .label {
+    font-size: 16px;
+    line-height: 1em;
+}
     .sopka-text{
         margin-bottom:140px;
     }
+    .label h3 {
+    font-size: 16px;
+}
+    .label p {
+    font-size: 14px;
+}
 }
 @media(max-width:1340px){
     .arrow-sopka{
@@ -242,10 +437,37 @@
     .arrow-sopka{
         width: 180px;
     }
+    .point-1 .label{
+        transform: translateX(-40%);
+    }
+    .point-7 .label{
+        transform: translateX(-60%);
+
+
+    }
 
 }
 
 @media(max-width:900px){
+    .label {
+        line-height: 1em;
+            padding: 10px 15px;
+    }
+
+    .sopka-text{
+        margin-bottom:140px;
+    }
+    .label h3 {
+    font-size: 13px;
+}
+    .label p {
+            font-size: 13px;
+        line-height: 0.9em;
+}
+    
+    .features-card-images h3 {
+    font-size: 22px; 
+}
     
     .sopka-title,
     .sopka-subtitle,
@@ -264,6 +486,9 @@
     width: 160px;
 }
 
+.sopka-title {
+    padding-top: 30px;
+}
 
 }
 
@@ -280,44 +505,187 @@
 
     .sopka-text p{
         font-size: 20px;
+        line-height: 1em;
     }
     .sopka-map {
-    padding-top: 50px;
+    padding-top: 40px;
     position: relative;
 }
 }
+@media(max-width:670px){
+    .label {
+        line-height: 1em;
+        padding: 8px 10px;
+    }
+}
+@media(max-width:640px){
+
+    .sopka-map {
+    padding-top: 20px;
+    }
+    .sopka-map-text {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        
+    }
+    .panorama-scroll{
+        overflow-x:auto;
+    }
+
+    .panorama{
+        width:180vw;
+    }
+
+    .panorama-image{
+        width:100%;
+    }
+    
+    .point::after {
+    height: 55px;
+}
+
+.point-1{
+    top:29%;
+}
+
+.point-2{
+    top:28%;
+}
+
+.point-3{
+    top:25%;
+}
+
+.point-4{
+    top:25%;
+}
+
+.point-5{
+    top:24%;
+}
+.point-6{
+    top:22%;
+}
+.point-7{
+    top:37%;
+}
+.point-8{
+    top:32%;
+}
+    
+}
+
+@media(max-width:580px){
+    .point::after {
+    height: 48px;
+}
+}
+@media(max-width:530px){
+    .point::after {
+    height: 43px;
+}
+}
+@media(max-width:470px){
+    .point::after {
+    height: 40px;
+}
+    .point-4{
+    top:23%;
+}
+
+}
+@media(max-width:440px){
+    .point::after {
+    height: 38px;
+}
+.point-3{
+    top:23%;
+}
+
+}
+@media(max-width:400px){
+    .point::after {
+    height: 35px;
+}
+
+}
+@media(max-width:380px){
+    .point::after {
+    height: 30px;
+}
+
+}
+@media(max-width:380px){
+    .point::after {
+    height: 27px;
+}
+
+}
+
 
 @media(max-width:480px){
+
+    .hero-grid {
+        padding: 24px 20px 120px;
+        gap: 10px;
+    }
+
     .sopka-title h1,
     .sopka-subtitle h2{
-        font-size:56px;
+        font-size: 48px;
+        text-align: center;
+    }
+
+    .sopka-text {
+    margin:10px;                    
     }
 
     .sopka-text p{
-        font-size:20px;
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 100px;               
     }
 
-    .label{
-        min-width:140px;
-        padding:10px 12px;
+    .sopka-map-text{
+        font-size: 18px;
     }
+
 
     .label h3{
-        font-size:16px;
+        font-size:13px;
     }
 
     .label p{
         font-size:13px;
     }
+
+    .features-card-images h3{
+        font-size: 16px;
+        right: 25px;
+    }
+
+    .sopka-map {
+    padding-top: 10px;
+    }
+
+    .sopka-map-text {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        
+    }
 }
-@media(max-width:390px){
+@media(max-width:380px){
     .sopka-title h1,
     .sopka-subtitle h2{
-        font-size:48px;
+        font-size:38px;
     }
 
     .sopka-text p{
-        font-size:18px;
+        font-size:15px;
+    }
+    .features-card-images h3{
+        font-size: 13px;
+        right: 25px;
     }
 
 }

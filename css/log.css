@@ -121,6 +121,25 @@
     .log-text{
         padding-top: 0px;
     }
+    .route-log {
+    padding-top: 40px;
+}
+    .route-log-desc {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .route-grid {
+    gap: 20px;
+}
+}
+@media(max-width:640px){
+.route-log {
+    padding-top: 20px;
+}
+    .route-log-desc {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }   
 }
 
 @media(max-width:550px){
@@ -164,6 +183,10 @@
         font-size:16px;
         text-align:center;
     }
+       .route-log-desc {
+        font-size: 18px;
+    }
+
 }
 
 @media(max-width:405px){
@@ -186,4 +209,7 @@
         font-size:13px;
         text-align:center;
     }
+    .route-grid {
+    gap: 0px;
+}
 }

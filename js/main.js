@@ -20,7 +20,7 @@ if (slider && cards.length > 0) {
     const getGap = () => parseFloat(getComputedStyle(slider).gap || getComputedStyle(slider).columnGap || '40');
 
     const getVisibleCards = () => {
-        const width = slider.parentElement?.clientWidth || window.innerWidth;
+        const width = slider.parentElement.getBoundingClientRect().width;
 
         if (width < 768) return 1;
         if (width < 1100) return 2;
@@ -29,17 +29,19 @@ if (slider && cards.length > 0) {
 
     const updateSlider = () => {
         const visibleCards = getVisibleCards();
-        const containerWidth = slider.parentElement?.clientWidth || window.innerWidth;
+        const containerWidth = window.innerWidth < 768
+    ? window.innerWidth - 32
+    : slider.parentElement.clientWidth;
         const gap = getGap();
 
         const cardWidth = (containerWidth - gap * (visibleCards - 1)) / visibleCards;
 
         cards.forEach(card => {
-            card.style.flex = '0 0 auto';
-            card.style.width = `${cardWidth}px`;
-            card.style.maxWidth = `${cardWidth}px`;
-            card.style.minWidth = '0';
-        });
+        card.style.flex = `0 0 ${cardWidth}px`;
+        card.style.width = `${cardWidth}px`;
+        card.style.maxWidth = '';
+        card.style.minWidth = '0';
+    });
 
         requestAnimationFrame(() => {
             const actualCardWidth = cards[0]?.getBoundingClientRect().width || cardWidth;
@@ -75,6 +77,38 @@ if (slider && cards.length > 0) {
     window.addEventListener('resize', updateSlider);
     window.addEventListener('load', updateSlider);
     updateSlider();
+}
+let startX = 0;
+let endX = 0;
+
+if(slider){
+
+    slider.addEventListener("touchstart", e=>{
+        startX = e.touches[0].clientX;
+    }, {passive:true});
+
+
+    slider.addEventListener("touchend", e=>{
+        endX = e.changedTouches[0].clientX;
+
+        const diff = startX - endX;
+
+        if(Math.abs(diff)<50) return;
+
+        const visibleCards = getVisibleCards();
+        const maxPosition = Math.max(0, cards.length - visibleCards);
+
+        if(diff > 0 && position < maxPosition){
+            position++;
+        }
+        else if(diff < 0 && position > 0){
+            position--;
+        }
+
+        updateSlider();
+
+    }, {passive:true});
+
 }
 
 const places = [

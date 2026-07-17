@@ -67,7 +67,7 @@
     bottom:35px;
     left:50%;
     transform:translateX(-50%);
-    font-family:'Wadik Bold';
+    font-family:'Wadik';
     font-size:clamp(18px, 2vw, 24px);
     line-height:1;
     color:#fff;
@@ -263,7 +263,7 @@
     }
 
     .history-info p{
-        text-align:left;
+        text-align:center;
     }
 }
 
@@ -293,5 +293,13 @@
 @media(max-width:450px){
     .ostrov-text p{
         font-size:16px;
+        line-height: 1em;
+
     }       
+}
+
+@media (max-width: 360px) {
+    .ostrov-text p {
+        font-size: 13px;
+    }
 }
