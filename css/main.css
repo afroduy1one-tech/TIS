@@ -294,8 +294,8 @@
 .cards-slider{
     display:flex;
     gap:40px;
-    width:max-content;
-    transform:translateX(0);
+    transition:transform .4s ease;
+    touch-action:pan-y;
 }
 
 
@@ -659,6 +659,11 @@ font-weight: 700;
 }
 
 @media(max-width:768px){
+    .arrows .slider-prev,
+    .arrows .slider-next{
+        display:none !important;
+    }
+    
     .hero-title h1{
         font-size: 88px;
     }
@@ -888,13 +893,8 @@ font-weight: 700;
         .hero-title {
         padding-left: 6px;
     }
-    .arrows,
-.objects-grid .arrows{
-    grid-column:auto;
-    justify-self:center;
-    justify-content:center;
-    width:100%;
-}
+
+
     .cards {
         margin-bottom: 0px;
     }

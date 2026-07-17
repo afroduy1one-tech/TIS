@@ -14,6 +14,9 @@ const cards = document.querySelectorAll('.cards-slider .card');
 const sliderNextBtn = document.querySelector('.slider-next');
 const sliderPrevBtn = document.querySelector('.slider-prev');
 
+let startX = 0;
+let endX = 0;
+
 if (slider && cards.length > 0) {
     let position = 0;
 
@@ -77,9 +80,36 @@ if (slider && cards.length > 0) {
     window.addEventListener('resize', updateSlider);
     window.addEventListener('load', updateSlider);
     updateSlider();
+
+
+    slider.addEventListener("touchstart", e=>{
+        startX = e.touches[0].clientX;
+    }, {passive:true});
+
+
+    slider.addEventListener("touchend", e=>{
+        endX = e.changedTouches[0].clientX;
+
+        const diff = startX - endX;
+
+        if(Math.abs(diff)<50) return;
+
+        const visibleCards = getVisibleCards();
+        const maxPosition = Math.max(0, cards.length - visibleCards);
+
+        if(diff > 0 && position < maxPosition){
+            position++;
+        }
+        else if(diff < 0 && position > 0){
+            position--;
+        }
+
+        updateSlider();
+
+    }, {passive:true});
+
 }
-let startX = 0;
-let endX = 0;
+
 
 if(slider){
 
