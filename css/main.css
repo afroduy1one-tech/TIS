@@ -663,7 +663,7 @@ font-weight: 700;
     .arrows .slider-next{
         display:none !important;
     }
-    
+
     .hero-title h1{
         font-size: 88px;
     }
@@ -803,7 +803,7 @@ font-weight: 700;
     }
     .hero-subtitle {
         padding-left: 10px;
-        justify-content: flex-start;
+        justify-content: flex-end;
     }
     
     .hero-info h2 {
