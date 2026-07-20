@@ -173,42 +173,38 @@ if(slider){
         {passive:true}
     );
 
+let isDragging = false;
+
+slider.parentElement.addEventListener("touchstart", e=>{
+    startX = e.touches[0].clientX;
+    isDragging = true;
+}, {passive:true});
 
 
-    slider.addEventListener(
-        "touchend",
-        e=>{
+slider.parentElement.addEventListener("touchend", e=>{
+
+    if(!isDragging) return;
+
+    isDragging = false;
+
+    endX = e.changedTouches[0].clientX;
+
+    const diff = startX - endX;
 
 
-            endX = e.changedTouches[0].clientX;
+    if(Math.abs(diff) < 50) return;
 
 
-            const diff = startX - endX;
+    if(diff > 0){
+        position++;
+    } else {
+        position--;
+    }
 
 
-            if(Math.abs(diff) < 50){
-                return;
-            }
+    updateSlider();
 
-
-            if(diff > 0){
-
-                position++;
-
-            } else {
-
-                position--;
-
-            }
-
-
-            updateSlider();
-
-
-        },
-        {passive:true}
-    );
-
+}, {passive:true});
 
 
     window.addEventListener(
