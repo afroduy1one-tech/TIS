@@ -124,6 +124,8 @@
     transition:transform .25s;
     appearance:none;
     -webkit-appearance:none;
+    outline:none;
+    -webkit-tap-highlight-color: transparent;
 }
 .point:hover{
     z-index:100;

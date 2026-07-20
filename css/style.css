@@ -161,6 +161,8 @@ section{
 
 .logo{
     flex-shrink:0;
+    outline:none;
+    -webkit-tap-highlight-color: transparent;
 }
 .logo img{
     width:140px;
@@ -360,6 +362,8 @@ font-weight: 700;
     align-items:center;
     justify-content:center;
     text-decoration:none;
+    outline:none;
+    -webkit-tap-highlight-color: transparent;
 }
 .card-footer a:hover {
     transform: scale(1.08);
@@ -454,6 +458,8 @@ footer {
 }
 
 .footer-info a{
+    outline:none;
+    -webkit-tap-highlight-color: transparent;
     text-decoration:none;
     color:#111;
     font-family:'Panama Monospace';
@@ -464,6 +470,8 @@ footer {
 
 .footer-logo img{
     width:180px;
+    outline:none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .footer-columns{
@@ -718,6 +726,8 @@ footer {
     gap:25px;
     width:1200px;
     margin-top:60px;
+    outline:none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -738,6 +748,7 @@ footer {
     appearance:none;
     -webkit-appearance:none;
     outline:none;
+    -webkit-tap-highlight-color: transparent;
 }
 .answer-card:focus,
 .answer-card:focus-visible{
@@ -788,6 +799,8 @@ footer {
     justify-content:space-between;
     padding:0 50px;
     z-index:2;
+    outline:none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .modal-arrows button{
@@ -809,7 +822,6 @@ footer {
 }
 
 .result.active{
-    
     overflow-y:auto;
     height:calc(100% - 100px);
     padding-bottom:40px;
@@ -861,6 +873,8 @@ footer {
     flex-direction:column;
     transition:.3s;
     cursor:pointer;
+    outline:none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .modal-card:hover{
@@ -932,7 +946,10 @@ footer {
     display: flex;
     justify-content:center;
     transition:.3s;
+    outline:none;
+    -webkit-tap-highlight-color: transparent;
 }
+
 .result-back:hover {
     transform:translateY(-2px);     
 } 

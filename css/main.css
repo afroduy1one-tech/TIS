@@ -94,6 +94,9 @@
         background .3s,
         border-color .3s,
         box-shadow .3s;
+
+        outline:none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .hero-btn:hover{
@@ -276,6 +279,9 @@
         transform .3s,
         background .3s,
         box-shadow .3s;
+
+        outline:none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .main-btn:hover{
@@ -357,6 +363,8 @@
         color .25s,
         transform .25s,
         box-shadow .25s;
+        outline:none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .map-label:hover{

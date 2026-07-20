@@ -162,6 +162,8 @@
         transform .25s,
         background .25s,
         box-shadow .25s;
+    outline:none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .history-arrows button:hover{
