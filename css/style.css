@@ -400,7 +400,7 @@ footer {
 .footer-content {
     display: flex;
     flex-direction: column;
-    gap: 170px;
+    gap: 180px;
 }
 .footer-desc {
     display: flex;
