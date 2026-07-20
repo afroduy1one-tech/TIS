@@ -9,7 +9,7 @@ burger.addEventListener('click',()=>{
 
 }
 const slider = document.querySelector('.cards-slider');
-const cards = document.querySelectorAll('.cards-slider .card');
+let cards = [];
 
 const sliderNextBtn = document.querySelector('.slider-next');
 const sliderPrevBtn = document.querySelector('.slider-prev');
@@ -17,117 +17,163 @@ const sliderPrevBtn = document.querySelector('.slider-prev');
 let startX = 0;
 let endX = 0;
 
-if (slider && cards.length > 0) {
-    let position = 0;
+let position = 3;
+let originalCards = [];
 
-    const getGap = () => parseFloat(getComputedStyle(slider).gap || getComputedStyle(slider).columnGap || '40');
+if(slider){
 
-    const getVisibleCards = () => {
-        const width = slider.parentElement.getBoundingClientRect().width;
+    originalCards = [...slider.children];
 
-        if (width < 768) return 1;
-        if (width < 1100) return 2;
-        return 3;
+    const firstClones = originalCards
+        .slice(0,3)
+        .map(card => card.cloneNode(true));
+
+    const lastClones = originalCards
+        .slice(-3)
+        .map(card => card.cloneNode(true));
+
+
+    lastClones.reverse().forEach(card=>{
+        slider.insertBefore(card, slider.firstChild);
+    });
+
+    firstClones.forEach(card=>{
+        slider.appendChild(card);
+    });
+
+
+    cards = [...slider.children];
+
+
+    const getGap = () => {
+        return parseFloat(getComputedStyle(slider).gap) || 0;
     };
 
-    const updateSlider = () => {
-        const visibleCards = getVisibleCards();
-        const containerWidth = window.innerWidth < 768
-    ? window.innerWidth - 32
-    : slider.parentElement.clientWidth;
+
+    const updateSlider = (animate=true)=>{
+
+        const visibleCards = window.innerWidth < 768 ? 1 :
+                             window.innerWidth < 1100 ? 2 : 3;
+
+
+        const containerWidth = slider.parentElement.clientWidth;
+
         const gap = getGap();
 
-        const cardWidth = (containerWidth - gap * (visibleCards - 1)) / visibleCards;
+        const cardWidth =
+        (containerWidth - gap * (visibleCards - 1)) / visibleCards;
 
-        cards.forEach(card => {
-        card.style.flex = `0 0 ${cardWidth}px`;
-        card.style.width = `${cardWidth}px`;
-        card.style.maxWidth = '';
-        card.style.minWidth = '0';
-    });
 
-        requestAnimationFrame(() => {
-            const actualCardWidth = cards[0]?.getBoundingClientRect().width || cardWidth;
-            const actualGap = getGap();
-
-            const maxPosition = Math.max(0, cards.length - visibleCards);
-            position = Math.min(position, maxPosition);
-
-            slider.style.transform = `translateX(-${position * (actualCardWidth + actualGap)}px)`;
-
+        cards.forEach(card=>{
+            card.style.flex = `0 0 ${cardWidth}px`;
+            card.style.width = `${cardWidth}px`;
         });
+
+
+        slider.style.transition = animate
+            ? "transform .4s ease"
+            : "none";
+
+
+        slider.style.transform =
+        `translateX(-${position * (cardWidth + gap)}px)`;
+
+
+        return {
+            cardWidth,
+            gap
+        };
     };
 
-    sliderNextBtn?.addEventListener('click', () => {
-    const visibleCards = getVisibleCards();
-    const maxPosition = Math.max(0, cards.length - visibleCards);
 
-    position = (position < maxPosition) ? position + 1 : 0;
+    updateSlider(false);
 
-    updateSlider();
+
+    slider.addEventListener('transitionend',()=>{
+
+        const total = originalCards.length;
+
+
+        if(position >= total + 3){
+
+            position = 3;
+
+            updateSlider(false);
+
+        }
+
+
+        if(position <= 2){
+
+            position = total + 2;
+
+            updateSlider(false);
+
+        }
+
     });
 
-    sliderPrevBtn?.addEventListener('click', () => {
-    const visibleCards = getVisibleCards();
-    const maxPosition = Math.max(0, cards.length - visibleCards);
 
-    position = (position > 0) ? position - 1 : maxPosition;
 
-    updateSlider();
+    sliderNextBtn?.addEventListener('click',()=>{
+
+        position++;
+
+        updateSlider();
+
     });
 
-    window.addEventListener('resize', updateSlider);
-    window.addEventListener('load', updateSlider);
 
-    window.addEventListener("load", () => {
+    sliderPrevBtn?.addEventListener('click',()=>{
 
-    if (window.innerWidth >= 768 || !sliderNextBtn) return;
+        position--;
 
-    setTimeout(() => {
-        sliderNextBtn.classList.add("hint");
+        updateSlider();
 
-        sliderNextBtn.addEventListener("animationend", () => {
-            sliderNextBtn.classList.remove("hint");
-        }, { once: true });
-
-    }, 1000);
-
-});
-    updateSlider();
+    });
 
 
-    slider.addEventListener("touchstart", e=>{
+
+    slider.addEventListener("touchstart",e=>{
+
         startX = e.touches[0].clientX;
-    }, {passive:true});
+
+    },{passive:true});
 
 
-    slider.addEventListener("touchend", e=>{
+
+    slider.addEventListener("touchend",e=>{
+
         endX = e.changedTouches[0].clientX;
 
         const diff = startX - endX;
 
+
         if(Math.abs(diff)<50) return;
 
-        const visibleCards = getVisibleCards();
-        const maxPosition = Math.max(0, cards.length - visibleCards);
 
-        if (diff > 0) {
-    if (position < maxPosition) {
-        position++;
-    } else {
-        position = 0;
-    }
-    } else {
-        if (position > 0) {
+        if(diff>0){
+
+            position++;
+
+        }else{
+
             position--;
-        } else {
-            position = maxPosition;
+
         }
-    }
+
 
         updateSlider();
 
-    }, {passive:true});
+    },{passive:true});
+
+
+
+    window.addEventListener('resize',()=>{
+
+        updateSlider(false);
+
+    });
 
 }
 

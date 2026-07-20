@@ -937,7 +937,7 @@ footer {
     transform:translateY(-2px);     
 } 
 
-
+    
 @media(max-width:1350px){
     .modal-window{
     width:min(96vw, 1000px);
