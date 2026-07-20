@@ -193,17 +193,27 @@
     max-width:100%;
     min-width:0;
     overflow:hidden;
-    touch-action:pan-x;
+    touch-action:pan-y;
+    -webkit-user-select:none;
+    user-select:none;
 }
+
 .slider-window::-webkit-scrollbar{
     display:none;
 }
 
 .cards-slider{
-     display:flex;
+    display:flex;
     gap:40px;
     transition:transform .4s ease;
     will-change:transform;
+    -webkit-user-select:none;
+    user-select:none;
+}
+.cards-slider img{
+    -webkit-user-drag:none;
+    user-select:none;
+    pointer-events:none;
 }
 
 .cards-slider .card{
@@ -675,6 +685,9 @@ font-weight: 700;
 }
 
 @media(max-width:768px){
+     .card:hover{
+        transform:none;
+    }
     
 
     .hero-title h1{

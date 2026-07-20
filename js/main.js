@@ -7,23 +7,25 @@ burger.addEventListener('click',()=>{
     menu.classList.toggle('active');
 });
 
-}
-const slider = document.querySelector('.cards-slider');
-let cards = [];
+}const slider = document.querySelector('.cards-slider');
 
 const sliderNextBtn = document.querySelector('.slider-next');
 const sliderPrevBtn = document.querySelector('.slider-prev');
 
+let cards = [];
+let originalCards = [];
+let position = 3;
+
 let startX = 0;
 let endX = 0;
 
-let position = 3;
-let originalCards = [];
 
 if(slider){
 
     originalCards = [...slider.children];
 
+
+    // клоны для бесконечности
     const firstClones = originalCards
         .slice(0,3)
         .map(card => card.cloneNode(true));
@@ -37,6 +39,7 @@ if(slider){
         slider.insertBefore(card, slider.firstChild);
     });
 
+
     firstClones.forEach(card=>{
         slider.appendChild(card);
     });
@@ -45,23 +48,43 @@ if(slider){
     cards = [...slider.children];
 
 
-    const getGap = () => {
-        return parseFloat(getComputedStyle(slider).gap) || 0;
-    };
+    function getVisibleCards(){
+
+        if(window.innerWidth < 768){
+            return 1;
+        }
+
+        if(window.innerWidth < 1100){
+            return 2;
+        }
+
+        return 3;
+    }
 
 
-    const updateSlider = (animate=true)=>{
+    function getGap(){
 
-        const visibleCards = window.innerWidth < 768 ? 1 :
-                             window.innerWidth < 1100 ? 2 : 3;
+        return parseFloat(
+            getComputedStyle(slider).gap
+        ) || 0;
+
+    }
 
 
-        const containerWidth = slider.parentElement.clientWidth;
+    function updateSlider(animate=true){
+
+        const visibleCards = getVisibleCards();
+
+        const containerWidth =
+            slider.parentElement.clientWidth;
+
 
         const gap = getGap();
 
+
         const cardWidth =
-        (containerWidth - gap * (visibleCards - 1)) / visibleCards;
+        (containerWidth - gap * (visibleCards - 1))
+        / visibleCards;
 
 
         cards.forEach(card=>{
@@ -78,106 +101,124 @@ if(slider){
         slider.style.transform =
         `translateX(-${position * (cardWidth + gap)}px)`;
 
+    }
 
-        return {
-            cardWidth,
-            gap
-        };
-    };
 
 
     updateSlider(false);
 
 
-    slider.addEventListener('transitionend',()=>{
 
-        const total = originalCards.length;
+    slider.addEventListener(
+        "transitionend",
+        ()=>{
+
+            const total = originalCards.length;
 
 
-        if(position >= total + 3){
+            if(position >= total + 3){
 
-            position = 3;
+                position = 3;
+                updateSlider(false);
 
-            updateSlider(false);
+            }
+
+
+            if(position <= 2){
+
+                position = total + 2;
+                updateSlider(false);
+
+            }
 
         }
-
-
-        if(position <= 2){
-
-            position = total + 2;
-
-            updateSlider(false);
-
-        }
-
-    });
+    );
 
 
 
-    sliderNextBtn?.addEventListener('click',()=>{
+    // кнопки
 
-        position++;
-
-        updateSlider();
-
-    });
-
-
-    sliderPrevBtn?.addEventListener('click',()=>{
-
-        position--;
-
-        updateSlider();
-
-    });
-
-
-
-    slider.addEventListener("touchstart",e=>{
-
-        startX = e.touches[0].clientX;
-
-    },{passive:true});
-
-
-
-    slider.addEventListener("touchend",e=>{
-
-        endX = e.changedTouches[0].clientX;
-
-        const diff = startX - endX;
-
-
-        if(Math.abs(diff)<50) return;
-
-
-        if(diff>0){
+    sliderNextBtn?.addEventListener(
+        "click",
+        ()=>{
 
             position++;
-
-        }else{
-
-            position--;
+            updateSlider();
 
         }
+    );
 
 
-        updateSlider();
+    sliderPrevBtn?.addEventListener(
+        "click",
+        ()=>{
 
-    },{passive:true});
+            position--;
+            updateSlider();
+
+        }
+    );
 
 
 
-    window.addEventListener('resize',()=>{
+    // свайп
 
-        updateSlider(false);
+    slider.addEventListener(
+        "touchstart",
+        e=>{
 
-    });
+            startX = e.touches[0].clientX;
+
+        },
+        {passive:true}
+    );
+
+
+
+    slider.addEventListener(
+        "touchend",
+        e=>{
+
+
+            endX = e.changedTouches[0].clientX;
+
+
+            const diff = startX - endX;
+
+
+            if(Math.abs(diff) < 50){
+                return;
+            }
+
+
+            if(diff > 0){
+
+                position++;
+
+            } else {
+
+                position--;
+
+            }
+
+
+            updateSlider();
+
+
+        },
+        {passive:true}
+    );
+
+
+
+    window.addEventListener(
+        "resize",
+        ()=>{
+            updateSlider(false);
+        }
+    );
 
 }
-
-
 
 const places = [
     {
@@ -609,4 +650,4 @@ fetch('modal.html')
 
     initModal();
 
-});
+})
