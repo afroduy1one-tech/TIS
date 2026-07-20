@@ -55,30 +55,44 @@ if (slider && cards.length > 0) {
 
             slider.style.transform = `translateX(-${position * (actualCardWidth + actualGap)}px)`;
 
-            if (sliderPrevBtn) sliderPrevBtn.disabled = position === 0;
-            if (sliderNextBtn) sliderNextBtn.disabled = position >= maxPosition;
         });
     };
 
     sliderNextBtn?.addEventListener('click', () => {
-        const visibleCards = getVisibleCards();
-        const maxPosition = Math.max(0, cards.length - visibleCards);
+    const visibleCards = getVisibleCards();
+    const maxPosition = Math.max(0, cards.length - visibleCards);
 
-        if (position < maxPosition) {
-            position++;
-            updateSlider();
-        }
+    position = (position < maxPosition) ? position + 1 : 0;
+
+    updateSlider();
     });
 
     sliderPrevBtn?.addEventListener('click', () => {
-        if (position > 0) {
-            position--;
-            updateSlider();
-        }
+    const visibleCards = getVisibleCards();
+    const maxPosition = Math.max(0, cards.length - visibleCards);
+
+    position = (position > 0) ? position - 1 : maxPosition;
+
+    updateSlider();
     });
 
     window.addEventListener('resize', updateSlider);
     window.addEventListener('load', updateSlider);
+
+    window.addEventListener("load", () => {
+
+    if (window.innerWidth >= 768 || !sliderNextBtn) return;
+
+    setTimeout(() => {
+        sliderNextBtn.classList.add("hint");
+
+        sliderNextBtn.addEventListener("animationend", () => {
+            sliderNextBtn.classList.remove("hint");
+        }, { once: true });
+
+    }, 1000);
+
+});
     updateSlider();
 
 
@@ -97,12 +111,19 @@ if (slider && cards.length > 0) {
         const visibleCards = getVisibleCards();
         const maxPosition = Math.max(0, cards.length - visibleCards);
 
-        if(diff > 0 && position < maxPosition){
-            position++;
-        }
-        else if(diff < 0 && position > 0){
+        if (diff > 0) {
+    if (position < maxPosition) {
+        position++;
+    } else {
+        position = 0;
+    }
+    } else {
+        if (position > 0) {
             position--;
+        } else {
+            position = maxPosition;
         }
+    }
 
         updateSlider();
 
@@ -111,35 +132,6 @@ if (slider && cards.length > 0) {
 }
 
 
-if(slider){
-
-    slider.addEventListener("touchstart", e=>{
-        startX = e.touches[0].clientX;
-    }, {passive:true});
-
-
-    slider.addEventListener("touchend", e=>{
-        endX = e.changedTouches[0].clientX;
-
-        const diff = startX - endX;
-
-        if(Math.abs(diff)<50) return;
-
-        const visibleCards = getVisibleCards();
-        const maxPosition = Math.max(0, cards.length - visibleCards);
-
-        if(diff > 0 && position < maxPosition){
-            position++;
-        }
-        else if(diff < 0 && position > 0){
-            position--;
-        }
-
-        updateSlider();
-
-    }, {passive:true});
-
-}
 
 const places = [
     {

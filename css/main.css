@@ -139,7 +139,8 @@
     justify-self:end;
     display:flex;
     gap:12px;
-     padding:0;
+    padding:0;
+    align-self: flex-end;
 }
 
 .objects-grid .slider-window{
@@ -150,6 +151,13 @@
 .cards-slider .card{
     width:auto;
 }
+.cards-slider{
+    display:flex;
+    gap:40px;
+    transition:transform .35s ease;
+}
+
+
 .cards:not(.cards-slider) .card{
     width:100%;
     max-width:100%;
@@ -271,6 +279,18 @@
     margin-left: min(600px, 35vw);
     margin-top: -50px;
 }
+@keyframes arrowHint {
+    0%,100%{
+        transform:translateX(0);
+    }
+    50%{
+        transform:translateX(8px);
+    }
+}
+
+.slider-next.hint{
+    animation:arrowHint .6s ease 2;
+}
 
 .construct-content p {
     font-family: 'Panama Monospace';
@@ -286,6 +306,7 @@
     max-width:100%;
     min-width:0;
     overflow:hidden;
+    touch-action:pan-y;
 }
 .slider-window::-webkit-scrollbar{
     display:none;
@@ -295,7 +316,7 @@
     display:flex;
     gap:40px;
     transition:transform .4s ease;
-    touch-action:pan-y;
+    touch-action:pan-y;   
 }
 
 
@@ -596,7 +617,8 @@ font-weight: 700;
         grid-column:1 / -1;
         margin-bottom:12px;
     }
-     .objects-grid .section-desc{
+    
+    .objects-grid .section-desc{
         grid-column:1 / -1;
         text-align:center;
         justify-self:center;
@@ -618,8 +640,8 @@ font-weight: 700;
     .objects-grid .arrows{
     display:flex;
     justify-content:space-between;
-    padding:0 20px;
-}
+    margin-top: -20px;
+    }
     
     .objects-grid .section-desc{
         font-size:24px;
@@ -659,10 +681,7 @@ font-weight: 700;
 }
 
 @media(max-width:768px){
-    .arrows .slider-prev,
-    .arrows .slider-next{
-        display:none !important;
-    }
+    
 
     .hero-title h1{
         font-size: 88px;
@@ -803,7 +822,7 @@ font-weight: 700;
     }
     .hero-subtitle {
         padding-left: 10px;
-        justify-content: flex-end;
+        justify-content: flex-endgit add ;
     }
     
     .hero-info h2 {
@@ -848,9 +867,10 @@ font-weight: 700;
         font-size: 18px;
     }
 
-        .objects-grid .section-desc {
+    .objects-grid .section-desc {
         font-size: 18px;
     }
+
     .hero-title h1{
     font-size:70px;
     }
@@ -897,6 +917,10 @@ font-weight: 700;
 
     .cards {
         margin-bottom: 0px;
+    }
+
+    .objects-grid .arrows {
+        margin-top: -10px;
     }
       
 }
