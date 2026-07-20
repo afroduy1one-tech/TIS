@@ -554,7 +554,7 @@ footer {
 
 .modal-window{
     position:relative;
-    width:1400px;
+    width:1300px;
     height:850px;
     max-width:90vw;
     max-height:90vh;
@@ -743,13 +743,14 @@ footer {
     justify-content:center;
 
     cursor:pointer;
-    transition:.3s;
+    transition:.1s;
 
     appearance:none;
     -webkit-appearance:none;
     outline:none;
     -webkit-tap-highlight-color: transparent;
 }
+
 .answer-card:focus,
 .answer-card:focus-visible{
     outline:none;
@@ -956,14 +957,7 @@ footer {
 
     
 @media(max-width:1350px){
-    .modal-window{
-    width:min(96vw, 1000px);
-    height:min(850px, 90vh);
-    border-radius:28px;
-    overflow:hidden;
-
-}
-    .modal-head{
+   .modal-head{
         padding:24px 28px;
     }
 
@@ -1216,7 +1210,7 @@ footer {
     .modal-cards {
         margin-top: 10px;
     }
-}
+
    
     .modal-window{
         border-radius:18px;
@@ -1289,7 +1283,7 @@ footer {
         font-size:16px;
     }
 
-
+}
 @media(max-width:350px){
     .modal-card {
         height: auto;
