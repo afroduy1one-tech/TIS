@@ -113,10 +113,9 @@
 .route-continue::before {
     content: "";
     position: absolute;
-    top: 17%;
-    left: 0;
+    top: 15%;
     width: 100%;
-    height: 70%;
+    height: 72%;
     background: url("../images/route-bg.png") no-repeat left top;
     pointer-events: none;
     z-index: -1;
